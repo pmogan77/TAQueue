@@ -5,6 +5,8 @@ Future Features
  - minor bug fixes/UI changes?
  - seperate accounts for TAs/professors
  - Fix issue on selected/value props
+ - standardize CSS naming conventions
+ - standardize capitalization conventions
 
 # Getting Started with Create React App
 
