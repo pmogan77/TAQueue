@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header.js';
+import Home from './Home.js';
+import Error from './404.js';
+import About from './About.js';
+import Remove from './Remove.js';
+import Schedule from './Schedule.js';
+import Join from './Join.js';
+import Login from './Login.js';
+import Signup from './Signup.js';
+import View from './View.js';
+import Dashboard from './Dashboard.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      {/* <Home/> */}
+      {/* <Error/> */}
+      {/* <About/> */}
+      {/* <Remove/> */}
+      {/* <Schedule/> */}
+      {/* <Join/> */}
+      {/* <Login/> */}
+      {/* <Signup/> */}
+      {/* <View/> */}
+      <Dashboard/>
     </div>
   );
 }

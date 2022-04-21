@@ -1,0 +1,12 @@
+.error {
+    display: grid;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.errorImage {
+    max-width: 100%;
+    max-height: 100vh;
+    width: auto;
+    margin: auto;
+}

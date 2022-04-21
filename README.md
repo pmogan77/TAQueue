@@ -1,3 +1,11 @@
+Future Features
+ - email
+   - used for password resettig, login/signup, sending emails to queue leaders
+ - Next.js
+ - minor bug fixes/UI changes?
+ - seperate accounts for TAs/professors
+ - Fix issue on selected/value props
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

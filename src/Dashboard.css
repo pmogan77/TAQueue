@@ -1,0 +1,108 @@
+.container_dash{
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    max-width: 90vw;
+    padding: 50px;
+    padding-top: 30px;
+    border-radius: 5px;
+    margin: 40px auto;
+    background-color: var(--offwhite);
+}
+
+.form_dash{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    max-width: 90vw;
+    padding: 10px 50px;
+    border-radius: 5px;
+    margin: 0px auto;
+}
+
+.container_dash h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.form_dash input{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button_dash {
+    margin-top: 20px;
+    width: 60%;
+    font-size: 15px;
+}
+
+.form_dash select{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 205px;
+}
+
+@media only screen and (max-width: 925px)
+{
+    .form_dash input{
+        margin:8px 0px !important;
+    }
+}
+
+.courseText{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 40px;
+}
+
+.table_dash td {
+    padding: 30px 50px;
+    text-align: left;
+}
+
+.table_dash{
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.table_dash hr {
+    width: 100%;
+}
+
+.table_dash th {
+    color: var(--gray2);
+    padding: 0px 50px;
+    text-align: left;
+}
+
+.table_dash td {
+    font-size: 23px;
+}
+
+.table_dash tr {
+    border-bottom: 1px solid black;
+}
+
+.position{
+    color: var(--dark_primary) !important;
+    border: 2px solid var(--dark_primary);
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.problem {
+    padding-left: 100px;
+}
