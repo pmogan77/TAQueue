@@ -1,0 +1,63 @@
+.container_join{
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    max-width: 60vw;
+    padding: 50px;
+    padding-top: 30px;
+    border-radius: 5px;
+    margin: 40px auto;
+    background-color: var(--offwhite);
+}
+
+.container_join h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.form_join input{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button_join {
+    margin-top: 20px;
+    width: 60%;
+    font-size: 15px;
+}
+
+.form_join select{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 205px;
+}
+
+.form_join textarea{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+    height: 150px;
+}
+
+@media only screen and (max-width: 925px)
+{
+    .form_join input{
+        margin:8px 0px !important;
+    }
+}
