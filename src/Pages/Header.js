@@ -7,7 +7,6 @@ import {
 } from 'darkreader';
 
 function Header(props) {
-  changePage = props.changePage
   const navSlide = () => {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-links");
