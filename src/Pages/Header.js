@@ -63,19 +63,19 @@ function Header(props) {
       <nav>
         <ul className="nav-links">
           <li>
-            <a href="/join" onClick={changePage("Join")}>Join</a>
+            <a href="/join" onClick={props.changePage("Join")}>Join</a>
           </li>
           <li>
-            <a href="/view" onClick={changePage("View")}>View</a>
+            <a href="/view" onClick={props.changePage("View")}>View</a>
           </li>
           <li>
-            <a href="/remove" onClick={changePage("Remove")}>Remove</a>
+            <a href="/remove" onClick={props.changePage("Remove")}>Remove</a>
           </li>
           <li>
-            <a href="/schedule" onClick={changePage("Schedule")}>Schedule</a>
+            <a href="/schedule" onClick={props.changePage("Schedule")}>Schedule</a>
           </li>
           <button>
-            <a href="/login" onClick={changePage("Login")} style={{ color: "white" }}>
+            <a href="/login" onClick={props.changePage("Login")} style={{ color: "white" }}>
               Login
             </a>
           </button>
