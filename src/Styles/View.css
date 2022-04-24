@@ -1,4 +1,4 @@
-.container_view{
+.container-view{
     -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     box-shadow: 1px 2px 5px rgba(0,0,0,.5);
@@ -13,7 +13,7 @@
     background-color: var(--offwhite);
 }
 
-.form_view{
+.form-view{
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -23,13 +23,13 @@
     margin: 0px auto;
 }
 
-.container_view h1{
+.container-view h1{
     font-size: 50px;
     margin-bottom: 20px;
     display: block;
 }
 
-.form_view input{
+.form-view input{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -38,13 +38,13 @@
     box-sizing: border-box;
 }
 
-.button_view {
+.button-view {
     margin-top: 20px;
     width: 60%;
     font-size: 15px;
 }
 
-.form_view select{
+.form-view select{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -61,37 +61,37 @@
     }
 }
 
-.viewText{
+.view-text{
     text-align: center;
     font-size: 40px;
     margin-top: 40px;
 }
 
-.table_view td {
+.table-view td {
     padding: 30px 50px;
     text-align: left;
 }
 
-.table_view{
+.table-view{
     margin: auto;
     border-collapse: collapse;
 }
 
-.table_view hr {
+.table-view hr {
     width: 100%;
 }
 
-.table_view th {
+.table-view th {
     color: var(--gray2);
     padding: 0px 50px;
     text-align: left;
 }
 
-.table_view td {
+.table-view td {
     font-size: 23px;
 }
 
-.table_view tr {
+.table-view tr {
     border-bottom: 1px solid black;
 }
 
@@ -103,7 +103,7 @@
     border-radius: 5px;
 }
 
-.table_view tr:first-child td .position {
+.table-view tr:first-child td .position {
     padding-left: 14px;
     padding-right: 14px;
 }

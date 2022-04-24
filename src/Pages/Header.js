@@ -9,8 +9,8 @@ import {
 function Header() {
   const navSlide = () => {
     const burger = document.querySelector(".burger");
-    const nav = document.querySelector(".nav__links");
-    const navLinks = document.querySelectorAll("nav ul li, nav ul button, .nav__links ion-icon");
+    const nav = document.querySelector(".nav-links");
+    const navLinks = document.querySelectorAll("nav ul li, nav ul button, .nav-links ion-icon");
     nav.classList.toggle("nav-active");
 
     navLinks.forEach((link, index) => {
@@ -29,7 +29,7 @@ function Header() {
 
   const toggleTheme = async function() {
     // check if ion-icon name is "moon"
-    const icon = document.querySelector(".nav__links ion-icon");
+    const icon = document.querySelector(".nav-links ion-icon");
       if(icon.name === "moon") {
         icon.name = "sunny-outline";
         setFetchMethod(window.fetch);
@@ -56,25 +56,25 @@ function Header() {
 
   return (
     <header id="header">
-      <a href="home">
+      <a href="home" onClick={setPage("Home")}>
         <img className="logo" src={logo} alt="logo" />
       </a>
       <nav>
-        <ul className="nav__links">
+        <ul className="nav-links">
           <li>
-            <a href="/join">Join</a>
+            <a href="/join" onClick={setPage("Join")}>Join</a>
           </li>
           <li>
-            <a href="/view">View</a>
+            <a href="/view" onClick={setPage("View")}>View</a>
           </li>
           <li>
-            <a href="/remove">Remove</a>
+            <a href="/remove" onClick={setPage("Remove")}>Remove</a>
           </li>
           <li>
-            <a href="/schedule">Schedule</a>
+            <a href="/schedule" onClick={setPage("Schedule")}>Schedule</a>
           </li>
           <button>
-            <a href="/login" style={{ color: "white" }}>
+            <a href="/login" onClick={setPage("Login")} style={{ color: "white" }}>
               Login
             </a>
           </button>

@@ -1,4 +1,4 @@
-.container_remove{
+.container-remove{
     -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     box-shadow: 1px 2px 5px rgba(0,0,0,.5);
@@ -13,13 +13,13 @@
     background-color: var(--offwhite);
 }
 
-.container_remove h1{
+.container-remove h1{
     font-size: 50px;
     margin-bottom: 20px;
     display: block;
 }
 
-.form_remove input{
+.form-remove input{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -28,7 +28,7 @@
     box-sizing: border-box;
 }
 
-.button_remove {
+.button-remove {
     margin-top: 20px;
     width: 60%;
     font-size: 15px;

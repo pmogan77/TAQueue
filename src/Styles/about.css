@@ -1,4 +1,4 @@
-.section1_about{
+.section1-about{
     background: white;
     background: -webkit-linear-gradient(to right, var(--light_primary), #0072FF);
     background: -moz-linear-gradient(to right, var(--light_primary), #0072FF);
@@ -9,23 +9,23 @@
     width: 100%;
 }
 
-.flexContainer_about{
+.flexContainer-about{
     display: flex;
     justify-content: space-around;
     flex-wrap:wrap;
 }
 
-.section2_about{
+.section2-about{
     width: 50vw;
     background: white;
     padding: 50px;
 }
 
-.section2_about img{
+.section2-about img{
     width: 100%;
 }
 
-.section2a_about{
+.section2a-about{
     color: black;
     background-color: white;
     padding-top: 100px;
@@ -39,15 +39,15 @@
     justify-content: center;
 }
 
-.section2Overall_about{
+.section2-overall-about{
     display: flex;
 }
 
-.section3_about{
+.section3-about{
     background-color: white;
 }
 
-.section3_about{
+.section3-about{
     padding-top: 55px;
     padding-bottom: 5px;
     padding-left: 50px;
@@ -63,12 +63,12 @@
 
 @media only screen and (max-width: 700px)
 {
-    .enterTextContainer_about{
+    .enter-text-container-about{
         margin-left: 10px;
         margin-right: 10px;
     }
 
-    .section3_about{
+    .section3-about{
         padding-bottom: 50px;
         padding-top: 0px;
     }
@@ -76,7 +76,7 @@
 
 @media only screen and (max-width: 1180px)
 {
-    .section1_about{
+    .section1-about{
         padding-bottom: 100px;
         padding-top: 50px;
     }
@@ -84,44 +84,44 @@
 
 @media only screen and (max-width: 800px)
 {
-    .section2_about{
+    .section2-about{
         width: 100vw;
         min-height: 500px;
     }
 
-    .section2a_about{
+    .section2a-about{
         width: 100vw;
         padding-top: 0px;
         padding-bottom: 20px;
     }
 
-    .section2Overall_about{
+    .section2Overall-about{
         flex-wrap: wrap;
     }
 
-    .section2a_about{
+    .section2a-about{
         margin-bottom: 20px;
     }
 
-    .section3_about{
+    .section3-about{
         padding-top: 10px;
     }
 }
 
-.findTextContainer_about{
+.find-text-container-about{
     text-align: center;
 }
 
 @media only screen and (max-width: 1095px)
 {
-    .findTextContainer_about{
+    .find-text-container_about{
         margin-top: 70px;
     }
 }
 
 @media only screen and (max-width: 550px)
 {
-    .image_2_Container_about video{
+    .image2_container_about video{
         max-width: 90vw;
     }
 }

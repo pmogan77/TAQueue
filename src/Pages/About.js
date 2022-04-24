@@ -5,14 +5,14 @@ import study from '../media/study.svg'
 function About() {
   return (
     <div className="about">
-      <div className="section1_about" style={{ fontWeight: "bold" }}>
-        <div className="flexContainer_about">
+      <div className="section1-about" style={{ fontWeight: "bold" }}>
+        <div className="flex-container-about">
           <div
             style={{ color: "white", fontWeight: "bolder", fontSize: "72px" }}
           >
             Our Mission
           </div>
-          <div className="break_about"></div>
+          <div className="break-about"></div>
           <div
             style={{ maxWidth: "70vw", textAlign: "center", color: "white" }}
           >
@@ -25,14 +25,14 @@ function About() {
         </div>
       </div>
 
-      <div className="section2Overall_about">
-        <div className="section2_about">
+      <div className="section2-overall-about">
+        <div className="section2-about">
             <img src={study} alt="studying girl"></img>
         </div>
 
-        <div className="section2a_about">
+        <div className="section2a-about">
           <div
-            className="findTextContainer_about"
+            className="find-text-container-about"
             style={{
               verticalAlign: "top",
               display: "inline-block",
@@ -80,9 +80,9 @@ function About() {
         </div>
       </div>
 
-      <hr className="divide_about"></hr>
+      <hr className="divide-about"></hr>
 
-      <div className="section3_about">
+      <div className="section3-about">
         <p
           style={{
             fontWeight: "bolder",
@@ -92,35 +92,35 @@ function About() {
         >
           Meet the Team
         </p>
-        <div className="flexContainer_about">
-          <div className="profile_about">
+        <div className="flex-container-about">
+          <div className="profile-about">
             <img src={praveen} alt="Profile" />
             <div className="name_about">Praveen Mogan</div>
             <div className="role_about">Business</div>
           </div>
 
-          <div className="profile_about">
+          <div className="profile-about">
             <img src={praveen} alt="Profile" />
-            <div className="name_about">Praveen Mogan</div>
-            <div className="role_about">Business</div>
+            <div className="name-about">Praveen Mogan</div>
+            <div className="role-about">Business</div>
           </div>
 
-          <div className="profile_about">
+          <div className="profile-about">
             <img src={praveen} alt="Profile" />
-            <div className="name_about">Praveen Mogan</div>
-            <div className="role_about">Technology</div>
+            <div className="name-about">Praveen Mogan</div>
+            <div className="role-about">Technology</div>
           </div>
 
-          <div className="profile_about">
+          <div className="profile-about">
             <img src={praveen} alt="Profile" />
-            <div className="name_about">Praveen Mogan</div>
-            <div className="role_about">Technology</div>
+            <div className="name-about">Praveen Mogan</div>
+            <div className="role-about">Technology</div>
           </div>
 
-          <div className="profile_about">
+          <div className="profile-about">
             <img src={praveen} alt="Profile" />
-            <div className="name_about">Praveen Mogan</div>
-            <div className="role_about">Technology</div>
+            <div className="name-about">Praveen Mogan</div>
+            <div className="role-about">Technology</div>
           </div>
         </div>
       </div>

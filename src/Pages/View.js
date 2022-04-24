@@ -3,23 +3,23 @@ import "../Styles/View.css";
 function View() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    const classCode = document.getElementById("classCode_view").value;
-    const format = document.getElementById("format_view").value;
+    const classCode = document.getElementById("classCode-view").value;
+    const format = document.getElementById("format-view").value;
     console.log(classCode, format);
   };
 
   return (
     <div>
-      <h1 className="viewText">View Queue</h1>
-      <form className="form_view" onSubmit={handleSubmit}>
+      <h1 className="view-text">View Queue</h1>
+      <form className="form-view" onSubmit={handleSubmit}>
         <input
-          id="classCode_view"
-          className="input_view"
+          id="classCode-view"
+          className="input-view"
           type="text"
           placeholder="Class code"
           style={{ marginRight: "40px" }}
         />
-        <select id="format_view" className="input_view">
+        <select id="format-view" className="input-view">
           <option value="none" selected disabled hidden>
             Format
           </option>
@@ -27,11 +27,11 @@ function View() {
           <option value="in-person">in-person</option>
         </select>
         <br />
-        <button className="button_view">View Queue</button>
+        <button className="button-view">View Queue</button>
       </form>
-      <div className="container_view">
+      <div className="container-view">
         {/* create a table with a name and format column and numbers in front */}
-        <table className="table_view">
+        <table className="table-view">
           <thead>
             <tr style={{border: "none"}}>
               <th></th>

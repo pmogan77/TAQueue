@@ -1,18 +1,18 @@
-.classInfoContainer {
+.class-info-container {
     text-align: center;
     margin: 40px auto;
     padding: 0px 50px;
 }
 
-.classInfoContainer h2 {
+.class-info-container h2 {
     display: inline-block;
 }
 
-.numPeople {
+.num-people {
     margin-right: 10vw;
 }
 
-.container_dash{
+.container-dash{
     -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     box-shadow: 1px 2px 5px rgba(0,0,0,.5);
@@ -27,7 +27,7 @@
     background-color: var(--offwhite);
 }
 
-.form_dash{
+.form-dash{
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -37,13 +37,13 @@
     margin: 0px auto;
 }
 
-.container_dash h1{
+.container-dash h1{
     font-size: 50px;
     margin-bottom: 20px;
     display: block;
 }
 
-.form_dash input{
+.form-dash input{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -52,13 +52,13 @@
     box-sizing: border-box;
 }
 
-.button_dash {
+.button-dash {
     margin-top: 20px;
     width: 60%;
     font-size: 15px;
 }
 
-.form_dash select{
+.form-dash select{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -70,42 +70,42 @@
 
 @media only screen and (max-width: 925px)
 {
-    .form_dash input{
+    .form-dash input{
         margin:8px 0px !important;
     }
 }
 
-.courseText{
+.course-text{
     text-align: center;
     font-size: 40px;
     margin-top: 40px;
 }
 
-.table_dash td {
+.table-dash td {
     padding: 30px 20px;
     text-align: left;
 }
 
-.table_dash{
+.table-dash{
     margin: auto;
     border-collapse: collapse;
 }
 
-.table_dash hr {
+.table-dash hr {
     width: 100%;
 }
 
-.table_dash th {
+.table-dash th {
     color: var(--gray2);
     padding: 0px 20px;
     text-align: left;
 }
 
-.table_dash td {
+.table-dash td {
     font-size: 23px;
 }
 
-.table_dash tr:nth-child(even){
+.table-dash tr:nth-child(even){
     border-bottom: 1px solid black;
 }
 
@@ -115,7 +115,7 @@
     padding-top: 0px !important;
 }
 
-.queueStatusText {
+.queue-status-text {
     margin-right: 20px;
 }
 
@@ -185,7 +185,7 @@
     border-radius: 50%;
   }
 
-.table_dash ion-icon {
+.table-dash ion-icon {
     font-size: 60px;
     cursor: pointer;
     margin-left: 75px;
@@ -194,18 +194,18 @@
 
 }
 
-.table_dash ion-icon:hover {
+.table-dash ion-icon:hover {
     transform: scale(1.5, 1.5);
     color: red;
 }
 
 
-.table_dash tr:first-child td .position {
+.table-dash tr:first-child td .position {
     padding-left: 14px;
     padding-right: 14px;
 }
 
-.input_dash{
+.input-dash{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -215,13 +215,13 @@
     width: 205px;
 }
 
-.queueStatus {
+.queue-status {
     margin-right: 10vw;
 }
 
 @media only screen and (max-width: 755px)
 {
-    .numPeople, .queueStatus {
+    .num-people, .queue-status {
         margin-right: 0vw;
         display: block;
         padding-bottom: 10px;

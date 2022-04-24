@@ -10,14 +10,14 @@ function Dash() {
 
   return (
     <div>
-      <h1 className="courseText">CS429</h1>
-      <div className="classInfoContainer">
-        <span className="numPeople">
-          <h2 className="numPeopleText">Number of People: {users}</h2>
+      <h1 className="course-text">CS429</h1>
+      <div className="class-info-container">
+        <span className="num-people">
+          <h2 className="num-people-text">Number of People: {users}</h2>
         </span>
 
-        <span className="queueStatus">
-          <h2 className="queueStatusText">Queue Status: </h2>
+        <span className="queue-status">
+          <h2 className="queue-status-text">Queue Status: </h2>
           <label className="switch">
             <input
               type="checkbox"
@@ -27,7 +27,7 @@ function Dash() {
             <span className="slider round"></span>
           </label>
         </span>
-        <select id="format_dash" className="input_dash">
+        <select id="format-dash" className="input-dash">
           <option value="none" selected disabled hidden>
             Format
           </option>
@@ -35,8 +35,8 @@ function Dash() {
           <option value="in-person">in-person</option>
         </select>
       </div>
-      <div className="container_dash">
-        <table className="table_dash">
+      <div className="container-dash">
+        <table className="table-dash">
           <thead>
             <tr style={{ border: "none" }}>
               <th></th>
