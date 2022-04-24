@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.flexContainer-about{
+.flex-container-about{
     display: flex;
     justify-content: space-around;
     flex-wrap:wrap;
@@ -95,7 +95,7 @@
         padding-bottom: 20px;
     }
 
-    .section2Overall-about{
+    .section2-overall-about{
         flex-wrap: wrap;
     }
 
@@ -114,47 +114,47 @@
 
 @media only screen and (max-width: 1095px)
 {
-    .find-text-container_about{
+    .find-text-container-about{
         margin-top: 70px;
     }
 }
 
 @media only screen and (max-width: 550px)
 {
-    .image2_container_about video{
+    .image2-container-about video{
         max-width: 90vw;
     }
 }
 
-.image_1_Container_about img {
+.image-1-container-about img {
     width: 400px;
 }
 
-.image_2_Container_about img {
+.image-2-container-about img {
     width: 400px;
 }
 
-.profile_about{
+.profile-about{
     margin-right: 40px;
     margin-bottom: 40px;
 }
 
-.profile_about img{
+.profile-about img{
     width: 150px;
     border-radius: 50%;
 }
 
-.name_about{
+.name-about{
     font-weight: bold;
     font-size: 24px;
 }
 
-.role_about{
+.role-about{
     color: var(--gray3);
     font-weight: bold;
 }
 
-.divide_about{
+.divide-about{
     border:0;
     margin: auto;
     width: 75vw;
@@ -166,12 +166,12 @@
 @media only screen and (max-width: 800px)
 {
 
-    .divide_about{
+    .divide-about{
         visibility: visible;
     }
 }
 
-.break_about {
+.break-about {
     flex-basis: 100%;
     height: 0;
 }

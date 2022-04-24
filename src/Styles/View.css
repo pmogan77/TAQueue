@@ -56,7 +56,7 @@
 
 @media only screen and (max-width: 925px)
 {
-    .form_view input{
+    .form-view input{
         margin:8px 0px !important;
     }
 }

@@ -15,6 +15,9 @@ import Dashboard from './Pages/Dashboard.js';
 function App() {
   const [curPage, setPage] = useState("Home");
 
+  const changePage = (page) => {
+    setPage(page)
+  }
   function getPage(){ 
     switch(curPage) {
       case "Home":
@@ -40,7 +43,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header changePage={this.changePage} />
       {this.getPage()}
       {/* <Home/> */}
       {/* <Error/> */}

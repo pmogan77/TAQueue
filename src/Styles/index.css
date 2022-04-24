@@ -18,14 +18,14 @@
     width: 100%;
 }
 
-.flexContainer{
+.flex-container{
     display: flex;
     justify-content: space-around;
     flex-wrap:wrap;
     align-items: center;
 }
 
-.introTextContainer{
+.intro-text-container{
     position: relative;
     margin-left: 50px;
     max-width: auto;
@@ -71,12 +71,12 @@
     background: linear-gradient(to right, var(--light_primary), #0072FF);
 }
 
-.enterTextContainer{
+.enter-text-container{
     display: inline-block;
     text-align: center;
 }
 
-.visitBtnContainer{
+.visit-btn-container{
     display: inline-block;
 }
 
@@ -94,7 +94,7 @@ button{
     transform: scale(1.0,1.0);
 }
 
-.findTextContainer{
+.find-text-container{
     text-align: center;
 }
 
@@ -105,7 +105,7 @@ button:hover{
 
 @media only screen and (max-width: 700px)
 {
-    .enterTextContainer{
+    .enter-text-container{
         margin-left: 10px;
         margin-right: 10px;
     }
@@ -117,7 +117,7 @@ button:hover{
 
 @media only screen and (max-width: 1160px)
 {
-    .image_1_Container{
+    .image1-container{
         margin-top: 80px;
     }
 
@@ -129,13 +129,13 @@ button:hover{
 
 @media only screen and (max-width: 1095px)
 {
-    .findTextContainer{
+    .find-text-container{
         margin-top: 70px;
         text-align: center;
     }
 }
 
-.image_1_Container img {
+.image1-container img {
     width: 300px;
 }
 
@@ -156,7 +156,7 @@ button:hover{
     margin-bottom: 20px;
 }
 
-.faqContainer{
+.faq-container{
     width: 95vw;
 }
 

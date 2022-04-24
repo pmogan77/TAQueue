@@ -13,7 +13,7 @@ function Signup() {
       <div className='container-signup'>
           <h1>Signup</h1>
           <div className='break'></div>
-            <form className='form_signup' onSubmit={handleSubmit}>
+            <form className='form-signup' onSubmit={handleSubmit}>
                 <input id = "classCode-signup" className='classCode-signup' type='text' placeholder='Class code' style = {{marginRight: "10%"}}/>
                 <input id = "password-signup" className='input-signup' type='password' placeholder='Password' />
                 <br/>

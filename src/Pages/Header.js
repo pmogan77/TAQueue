@@ -6,7 +6,8 @@ import {
     setFetchMethod
 } from 'darkreader';
 
-function Header() {
+function Header(props) {
+  changePage = props.changePage
   const navSlide = () => {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-links");
@@ -56,25 +57,25 @@ function Header() {
 
   return (
     <header id="header">
-      <a href="home" onClick={setPage("Home")}>
+      <a href="home" onClick={changePage("Home")}>
         <img className="logo" src={logo} alt="logo" />
       </a>
       <nav>
         <ul className="nav-links">
           <li>
-            <a href="/join" onClick={setPage("Join")}>Join</a>
+            <a href="/join" onClick={changePage("Join")}>Join</a>
           </li>
           <li>
-            <a href="/view" onClick={setPage("View")}>View</a>
+            <a href="/view" onClick={changePage("View")}>View</a>
           </li>
           <li>
-            <a href="/remove" onClick={setPage("Remove")}>Remove</a>
+            <a href="/remove" onClick={changePage("Remove")}>Remove</a>
           </li>
           <li>
-            <a href="/schedule" onClick={setPage("Schedule")}>Schedule</a>
+            <a href="/schedule" onClick={changePage("Schedule")}>Schedule</a>
           </li>
           <button>
-            <a href="/login" onClick={setPage("Login")} style={{ color: "white" }}>
+            <a href="/login" onClick={changePage("Login")} style={{ color: "white" }}>
               Login
             </a>
           </button>

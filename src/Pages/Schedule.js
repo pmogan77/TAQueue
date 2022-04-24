@@ -19,7 +19,7 @@ function Schedule() {
             </form>
       </div>
 
-      <div className='image_schedule-container'>
+      <div className='image-schedule-container'>
         <p>No Image to show</p>
         <img className="schedule" src="https://i.imgur.com/7m1ApZD.png" alt="schedule"></img>
       </div>
