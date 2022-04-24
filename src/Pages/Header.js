@@ -56,7 +56,7 @@ function Header(props) {
 
   return (
     <header id="header">
-      <a href="home" onClick={changePage("Home")}>
+      <a href="home" onClick={props.changePage("Home")}>
         <img className="logo" src={logo} alt="logo" />
       </a>
       <nav>
