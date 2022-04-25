@@ -56,25 +56,25 @@ function Header(props) {
 
   return (
     <header id="header">
-      <a href="home" onClick={props.changePage("Home")}>
+      <a href="home">
         <img className="logo" src={logo} alt="logo" />
       </a>
       <nav>
         <ul className="nav-links">
           <li>
-            <a href="/join" onClick={props.changePage("Join")}>Join</a>
+            <a href="/join" >Join</a>
           </li>
           <li>
-            <a href="/view" onClick={props.changePage("View")}>View</a>
+            <a href="/view" >View</a>
           </li>
           <li>
-            <a href="/remove" onClick={props.changePage("Remove")}>Remove</a>
+            <a href="/remove" >Remove</a>
           </li>
           <li>
-            <a href="/schedule" onClick={props.changePage("Schedule")}>Schedule</a>
+            <a href="/schedule">Schedule</a>
           </li>
           <button>
-            <a href="/login" onClick={props.changePage("Login")} style={{ color: "white" }}>
+            <a href="/login"style={{ color: "white" }}>
               Login
             </a>
           </button>

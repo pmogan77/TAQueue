@@ -13,48 +13,50 @@ import View from './Pages/View.js';
 import Dashboard from './Pages/Dashboard.js';
 
 function App() {
-  const [curPage, setPage] = useState("Home");
+  // const [curPage, setPage] = useState("Home");
 
-  const changePage = (page) => {
-    setPage(page)
-  }
-  function getPage(){ 
-    switch(curPage) {
-      case "Home":
-        return <Home/>
-      case "About":
-        return <About/>
-      case "Remove":
-        return <Remove/>
-      case "Schedule":
-        return <Schedule/>
-      case "Join":
-        return <Join/>
-      case "Login":
-        return <Login/>
-      case "Signup":
-        return <Signup/>
-      case "View":
-        return <View/>
-      default:
-        return <Error/>
-    }
-  }
+  // const changePage = (page) => {
+  //   setPage(page)
+  // }
+  // function getPage(){ 
+  //   switch(curPage) {
+  //     case "Home":
+  //       return <div><Header changePage={changePage} /> <Home/></div>
+  //     case "About":
+  //       return <div><Header changePage={changePage} /> <About/></div>
+  //     case "Remove":
+  //       return <div><Header changePage={changePage} /> <Remove/></div>
+  //     case "Schedule":
+  //       return <div><Header changePage={changePage} /> <Schedule/></div>
+  //     case "Join":
+  //       return <div><Header changePage={changePage} /> <Join/></div>
+  //     case "Login":
+  //       return <div><Header changePage={changePage} /> <Login/></div>
+  //     case "Signup":
+  //       return <div><Header changePage={changePage} /> <Signup/></div>
+  //     case "View":
+  //       return <div><Header changePage={changePage} /> <View/></div>
+  //     case "Dashboard":
+  //       return <div><Header changePage={changePage} /> <Dashboard/></div>
+  //     default:
+  //       return <div><Header changePage={changePage} /> <Error/></div>
+  //   }
+  // }
 
   return (
     <div>
-      <Header changePage={this.changePage} />
-      {this.getPage()}
+      {/* {getPage()} */}
+      {<Header/>}
       {/* <Home/> */}
       {/* <Error/> */}
-      {/* <About/> */}
+      <About/>
       {/* <Remove/> */}
       {/* <Schedule/> */}
       {/* <Join/> */}
       {/* <Login/> */}
       {/* <Signup/> */}
       {/* <View/> */}
-      <Dashboard/>
+      {/* <Dashboard/> */}
     </div>
   );
 }

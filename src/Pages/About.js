@@ -95,8 +95,8 @@ function About() {
         <div className="flex-container-about">
           <div className="profile-about">
             <img src={praveen} alt="Profile" />
-            <div className="name_about">Praveen Mogan</div>
-            <div className="role_about">Business</div>
+            <div className="name-about">Praveen Mogan</div>
+            <div className="role-about">Business</div>
           </div>
 
           <div className="profile-about">
