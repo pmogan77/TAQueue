@@ -19,8 +19,8 @@ function View() {
           placeholder="Class code"
           style={{ marginRight: "40px" }}
         />
-        <select id="format-view" className="input-view">
-          <option value="none" selected disabled hidden>
+        <select id="format-view" className="input-view" defaultValue={'none'}>
+          <option value="none" disabled hidden>
             Format
           </option>
           <option value="online">online</option>

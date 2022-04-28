@@ -1,6 +1,7 @@
 import learn from "../media/learn.svg";
 import {useState} from "react";
 import '../Styles/index.css'
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -28,13 +29,13 @@ function Home() {
               and <span style={{color: "white"}}> EID</span>
             </p>
           </div>
-          <div class="break"></div>
+          <div className="break"></div>
           <div className="visit-btn-container">
-            <a href="/join">
+            <Link to="/join">
               <button style={{width: "50vw", borderRadius: "10px", fontWeight: "bold", padding: "10px"}} type="button">
                 Join A Queue
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

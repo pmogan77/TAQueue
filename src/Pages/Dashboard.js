@@ -27,8 +27,8 @@ function Dash() {
             <span className="slider round"></span>
           </label>
         </span>
-        <select id="format-dash" className="input-dash">
-          <option value="none" selected disabled hidden>
+        <select id="format-dash" className="input-dash" defaultValue={'none'}>
+          <option value="none" disabled hidden>
             Format
           </option>
           <option value="online">online</option>

@@ -20,8 +20,8 @@ function Join() {
                 <input id = "classCode-join" className='input-join' type='text' placeholder='Class code' />
                 <br/>
                 <input id = "EID-join" className='input-join' type='text' placeholder='EID' style = {{marginRight: "10%"}}/>
-                <select id="format-join" className='input-join'>
-                    <option value="none" selected disabled hidden>Format</option>
+                <select id="format-join" className='input-join' defaultValue={'none'}>
+                    <option value="none" disabled hidden>Format</option>
                     <option value="online">online</option>
                     <option value="in-person">in-person</option>
                 </select>

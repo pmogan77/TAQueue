@@ -5,8 +5,10 @@ import {
     disable as disableDarkMode,
     setFetchMethod
 } from 'darkreader';
+import {Link} from "react-router-dom";
 
-function Header(props) {
+
+function Header() {
   const navSlide = () => {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-links");
@@ -56,27 +58,27 @@ function Header(props) {
 
   return (
     <header id="header">
-      <a href="home">
+      <Link to="/">
         <img className="logo" src={logo} alt="logo" />
-      </a>
+      </Link>
       <nav>
         <ul className="nav-links">
           <li>
-            <a href="/join" >Join</a>
+            <Link to="/join" >Join</Link>
           </li>
           <li>
-            <a href="/view" >View</a>
+            <Link to="/view" >View</Link>
           </li>
           <li>
-            <a href="/remove" >Remove</a>
+            <Link to="/remove" >Remove</Link>
           </li>
           <li>
-            <a href="/schedule">Schedule</a>
+            <Link to="/schedule">Schedule</Link>
           </li>
           <button>
-            <a href="/login"style={{ color: "white" }}>
+            <Link to="/login"style={{ color: "white" }}>
               Login
-            </a>
+            </Link>
           </button>
           <ion-icon name={localStorage.getItem("darkMode") && localStorage.getItem("darkMode") === "enabled" ? "sunny-outline" : "moon"} onClick={toggleTheme}></ion-icon>
           
