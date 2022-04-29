@@ -17,6 +17,7 @@ function Signup() {
                 <input id = "classCode-signup" className='classCode-signup' type='text' placeholder='Class code' style = {{marginRight: "10%"}}/>
                 <input id = "password-signup" className='input-signup' type='password' placeholder='Password' />
                 <br/>
+                <input id = "image-url-signup" className='image-url-signup' type='url' placeholder='Image URL' />
                 <button className='button-signup2'>Signup</button>
             </form>
       </div>

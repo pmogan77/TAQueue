@@ -1,4 +1,5 @@
 import '../Styles/Login.css';
+import { Link } from "react-router-dom";
 
 function Login() {
     const handleSubmit = (e) => {
@@ -21,7 +22,8 @@ function Login() {
             </form>
 
             <br/>
-            <button className='button-signup'>Signup</button>
+            <button className='button-signup'><Link to="/signup" style={{"color": "#0072FF", "fontSize": "15px"}}>Signup</Link></button>
+
       </div>
     </div>
   );
