@@ -1,13 +1,17 @@
 import "../Styles/Dashboard.css";
 import { useState } from "react";
+import { Navigate } from 'react-router-dom';
 
-function Dash() {
+function Dash(props) {
+  const {signedIn} = props;
   const users = 3;
   const [open, setOpen] = useState(false);
   const toggleStatus = () => {
     setOpen(!open);
   };
-
+  if(!signedIn) {
+    return <Navigate to="/login" />;
+  }
   return (
     <div>
       <h1 className="course-text">CS429</h1>
@@ -85,7 +89,7 @@ function Dash() {
 
             <tr>
               <td rowSpan="2">
-                <span className="position">02</span>
+                <span className="position">03</span>
               </td>
               <td>Ayaan</td>
               <td>GH3456</td>
@@ -102,6 +106,9 @@ function Dash() {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className="delete-class">
+        <div className="delete-button">Delete Class</div>
       </div>
     </div>
   );

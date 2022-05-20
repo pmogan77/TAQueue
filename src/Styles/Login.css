@@ -41,3 +41,26 @@
     background-color: transparent;
     color: var(--dark_primary) !important;
 }
+
+.forgot-password-login{
+    font-size: 15px;
+    color: var(--dark_primary);
+    margin-top: 15px;
+}
+
+.forgot-password-login span{
+    cursor: pointer;
+}
+
+.forgot-password-login span:hover{
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 866px)
+{
+    .classCode-login {
+        margin-right: 10% !important;
+    }
+}
+
+

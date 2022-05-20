@@ -29,6 +29,8 @@ function View() {
         <br />
         <button className="button-view">View Queue</button>
       </form>
+
+      <div className="meeting-link"><a href="http://google.com" target="_blank">Meeting Link</a></div>
       <div className="container-view">
         {/* create a table with a name and format column and numbers in front */}
         <table className="table-view">

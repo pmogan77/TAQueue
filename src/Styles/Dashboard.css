@@ -25,6 +25,21 @@
     border-radius: 5px;
     margin: 40px auto;
     background-color: var(--offwhite);
+    overflow-x: auto;
+}
+
+.container-dash::-webkit-scrollbar {
+    width: 15px;
+}
+
+.container-dash::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 15px;
+}
+
+.container-dash::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
 .form-dash{
@@ -226,6 +241,28 @@
         display: block;
         padding-bottom: 10px;
     }
+}
 
-    
+.delete-class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.delete-button {
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid red;
+    padding: 7px 10px;
+    color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-button:hover{
+    background-color: red;
+    color: white;
+    transition: all 0.3s ease;
 }

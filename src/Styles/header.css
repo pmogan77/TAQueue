@@ -54,7 +54,7 @@ header{
     border-color: var(--dark_primary);
 }
 
-li, a{
+li, .nav-links li a{
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 16px;

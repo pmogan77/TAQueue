@@ -53,6 +53,7 @@
     box-sizing: border-box;
     resize: none;
     height: 150px;
+    width: 75%;
 }
 
 @media only screen and (max-width: 925px)

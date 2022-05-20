@@ -1,5 +1,6 @@
-import logo from "../media/logo.png";
 import '../Styles/header.css';
+import { useState } from "react";
+import {signOut} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 import {
     enable as enableDarkMode,
     disable as disableDarkMode,
@@ -8,7 +9,8 @@ import {
 import {Link} from "react-router-dom";
 
 
-function Header() {
+function Header(props) {
+  const {auth, signedIn} = props;
   const navSlide = () => {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-links");
@@ -37,11 +39,21 @@ function Header() {
         setFetchMethod(window.fetch);
         enableDarkMode();
         localStorage.setItem("darkMode", "enabled");
+        if(window.innerWidth <= 900) {
+          setLogo(require("../media/logo-dark-res.png"));
+        } else {
+          setLogo(require("../media/logo-dark.png"));
+        }
       } else {
         icon.name = "moon";
         setFetchMethod(window.fetch);
         disableDarkMode();
         localStorage.setItem("darkMode", "disabled");
+        if(window.innerWidth <= 900) {
+          setLogo(require("../media/logo-res.png"));
+        } else {
+          setLogo(require("../media/logo.png"));
+        }
       } 
   };
 
@@ -54,7 +66,42 @@ function Header() {
     }
   };
 
+  window.onresize = () => {
+    setLogo(require("../media/logo"+(localStorage.getItem("darkMode") === "enabled" ? "-dark" : "")+(window.innerWidth <= 900 ? "-res" : "")+".png"));
+  };
+
   initDarkMode();
+  var [logo, setLogo] = useState(require("../media/logo"+(localStorage.getItem("darkMode") === "enabled" ? "-dark" : "")+(window.innerWidth <= 900 ? "-res" : "")+".png"));
+
+  const handleLogOut = () => {
+    if(document.querySelector(".log-button").innerText == "Login") {
+      return;
+    }
+
+    // handle logout here
+    signOut(auth).then(()=>{
+
+      //LOGOUT HERE
+      console.log("signed out");
+
+      if(auth.currentUser) {
+        console.log("user still signed in");
+      } else {
+        console.log("user signed out");
+      }
+
+      fetch('/api/auth', {method: 'POST', body: JSON.stringify({Token: null})})
+          .then(res => {
+              res.text().then(res => 
+              console.log(res))
+          })
+          .catch(err => console.log(err));
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+    
+  }
 
   return (
     <header id="header">
@@ -75,13 +122,12 @@ function Header() {
           <li>
             <Link to="/schedule">Schedule</Link>
           </li>
-          <button>
-            <Link to="/login"style={{ color: "white" }}>
-              Login
-            </Link>
-          </button>
-          <ion-icon name={localStorage.getItem("darkMode") && localStorage.getItem("darkMode") === "enabled" ? "sunny-outline" : "moon"} onClick={toggleTheme}></ion-icon>
-          
+          <Link to="/login">
+            <button className = "log-button" style={{ color: "white", fontSize: "16px", fontWeight: "bold"}} onClick={handleLogOut}>
+                {signedIn ? "Logout" : "Login"}
+            </button>
+          </Link>
+          <ion-icon name={localStorage.getItem("darkMode") && localStorage.getItem("darkMode") === "enabled" ? "sunny-outline" : "moon"} onClick={toggleTheme}></ion-icon>  
         </ul>
       </nav>
       <div className="burger" onClick={navSlide}>

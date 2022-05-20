@@ -1,10 +1,23 @@
+Todo: 
+ - [ ] connecting to Firestore (database)
+ - [ ] implementing authentication
+ - [ ] creating pathways between frontend and backend API to get data
+ - [ ] place data on frontend using React hooks
+ - [ ] implement security features via Firebase Security Rules (only allow from deployed url)
+ - [ ] if already logged in (localstorage), redirect to dashboard when login
+
+Security Features
+ - [ ] use .env variables
+ - [ ] implement firestore security rules
+ - [ ] clean input data to prevent injection attacks
+
 Future Features
- - email
-   - used for password resettig, login/signup, sending emails to queue leaders
- - Next.js
- - minor bug fixes/UI changes?
- - seperate accounts for TAs/professors
- - standardize capitalization conventions
+ - [ ] email
+   - [ ] used for password resettig, login/signup, sending emails to queue leaders
+ - [ ] Next.js
+ - [ ] minor bug fixes/UI changes?
+ - [ ] seperate accounts for TAs/professors
+ - [ ] standardize capitalization conventions
 
 # Getting Started with Create React App
 

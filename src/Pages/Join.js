@@ -27,7 +27,7 @@ function Join() {
                 </select>
                 <br/>
                 <br/>
-                <textarea name="paragraph-text" cols="50" rows="10" placeholder="Describe your problem here..."></textarea>
+                <textarea name="paragraph-text" rows="10" placeholder="Describe your problem here..."></textarea>
                 <br/>
                 <button className='button-join'>Join a Queue</button>
             </form>
