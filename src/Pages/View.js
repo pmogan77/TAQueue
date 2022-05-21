@@ -21,7 +21,7 @@ function View() {
         />
         <select id="format-view" className="input-view" defaultValue={'none'}>
           <option value="none" disabled hidden>
-            Format
+            Format (optional)
           </option>
           <option value="online">online</option>
           <option value="in-person">in-person</option>
@@ -30,9 +30,8 @@ function View() {
         <button className="button-view">View Queue</button>
       </form>
 
-      <div className="meeting-link"><a href="http://google.com" target="_blank">Meeting Link</a></div>
+      <div className="meeting-link"><a href="http://google.com" target="_blank" rel="noreferrer">Meeting Link</a></div>
       <div className="container-view">
-        {/* create a table with a name and format column and numbers in front */}
         <table className="table-view">
           <thead>
             <tr style={{border: "none"}}>

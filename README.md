@@ -4,7 +4,11 @@ Todo:
  - [ ] creating pathways between frontend and backend API to get data
  - [ ] place data on frontend using React hooks
  - [ ] implement security features via Firebase Security Rules (only allow from deployed url)
+ - [ ] Prettify code
  - [ ] if already logged in (localstorage), redirect to dashboard when login
+ - [ ] add about page link
+ - [ ] allow teachers to change meeting and schedule links
+ - [ ] figure out how to make live view of queuees
 
 Security Features
  - [ ] use .env variables
@@ -16,8 +20,11 @@ Future Features
    - [ ] used for password resettig, login/signup, sending emails to queue leaders
  - [ ] Next.js
  - [ ] minor bug fixes/UI changes?
- - [ ] seperate accounts for TAs/professors
- - [ ] standardize capitalization conventions
+ - [ ] seperate accounts for TAs/professors; setting pages?
+ - [ ] implement better logging
+ - [ ] multiple zoom links?
+ - [ ] implement Aria Labels
+ - [ ] multiple user in single join
 
 # Getting Started with Create React App
 

@@ -1,4 +1,4 @@
-.container-remove{
+.container-settings{
     -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     box-shadow: 1px 2px 5px rgba(0,0,0,.5);
@@ -13,13 +13,13 @@
     background-color: var(--offwhite);
 }
 
-.container-remove h1{
+.container-settings h1{
     font-size: 50px;
     margin-bottom: 20px;
     display: block;
 }
 
-.form-remove input{
+.form-settings input{
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -28,7 +28,7 @@
     box-sizing: border-box;
 }
 
-.button-remove {
+.button-settings {
     margin-top: 20px;
     width: 60%;
     font-size: 15px;
@@ -36,7 +36,7 @@
 
 @media only screen and (min-width: 950px)
 {
-    #classCode-remove {
+    #classCode-settings {
         margin-right: 10% !important;
     }
 }

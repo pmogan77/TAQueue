@@ -1,6 +1,6 @@
 import "../Styles/Signup.css";
 import { getDoc, doc, setDoc, collection } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 
 function Signup(props) {  
   const {auth, db} = props;
@@ -12,7 +12,7 @@ function Signup(props) {
     return typeof checkDoc.data() == "undefined";
   };
 
-  const createUser = async (classCode, password, url, meeting) => {
+  const handleSignup = async (classCode, password, url, meeting) => {
     // create user in database
     const email = classCode + "@taqueue.com";
     var userCredential;
@@ -49,7 +49,33 @@ function Signup(props) {
     console.log("Added class information to database");
 
     console.log(user);
+    try {
+      const res = await signInWithEmailAndPassword(auth, email, password);
+      console.log(res);
+    } catch(error) {
+      alert(error);
+      return;
+    }
+
+    var token;
+    try{
+      token = await auth.currentUser.getIdToken();
+    } catch(error) {
+      alert(error);
+      return;
+    }
+
+
+    try{
+      var res = await fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({Token: token})})
+      res = await res.text();
+      console.log(res);
+    } catch(error) {
+      alert(error);
+      return;
+    }
     
+    window.location.href = "/dashboard";
   };
 
   const handleSubmit = (e) => {
@@ -69,9 +95,8 @@ function Signup(props) {
         alert("Class code already exists");
         return;
       }
-      createUser(classCode, password, url, meeting);
+      handleSignup(classCode, password, url, meeting);
     });
-
   };
 
   return (
@@ -98,7 +123,7 @@ function Signup(props) {
             id="image-url-signup"
             className="image-url-signup"
             type="url"
-            placeholder="Image URL"
+            placeholder="Schedule Image URL"
           />
           <input
             id="meeting-url-signup"
@@ -106,6 +131,7 @@ function Signup(props) {
             type="url"
             placeholder="Meeting URL"
           />
+          <div className="links-notification">*If there are multiple links, please use Linktree</div>
           <button className="button-signup2">Signup</button>
         </form>
       </div>

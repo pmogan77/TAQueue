@@ -74,7 +74,7 @@ function Header(props) {
   var [logo, setLogo] = useState(require("../media/logo"+(localStorage.getItem("darkMode") === "enabled" ? "-dark" : "")+(window.innerWidth <= 900 ? "-res" : "")+".png"));
 
   const handleLogOut = () => {
-    if(document.querySelector(".log-button").innerText == "Login") {
+    if(document.querySelector(".log-button").innerText === "Login") {
       return;
     }
 
@@ -90,7 +90,7 @@ function Header(props) {
         console.log("user signed out");
       }
 
-      fetch('/api/auth', {method: 'POST', body: JSON.stringify({Token: null})})
+      fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({Token: null})})
           .then(res => {
               res.text().then(res => 
               console.log(res))
@@ -122,6 +122,7 @@ function Header(props) {
           <li>
             <Link to="/schedule">Schedule</Link>
           </li>
+          <li style={{display: signedIn ? "" : "none"}}><Link to="/dashboard">Dashboard</Link></li>
           <Link to="/login">
             <button className = "log-button" style={{ color: "white", fontSize: "16px", fontWeight: "bold"}} onClick={handleLogOut}>
                 {signedIn ? "Logout" : "Login"}

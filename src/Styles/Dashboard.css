@@ -230,6 +230,26 @@
     width: 205px;
 }
 
+.settings-dash{
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-left: 40px;
+}
+
+.settings-dash ion-icon {
+  vertical-align: middle;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all .3s ease 0s;
+}
+
+.settings-dash ion-icon:hover {
+    transition: all .3s ease 0s;
+    color: var(--dark_primary);
+    transform: rotate(50deg);
+}
+
 .queue-status {
     margin-right: 10vw;
 }

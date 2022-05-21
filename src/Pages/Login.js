@@ -19,7 +19,7 @@ function Login(props) {
     signInWithEmailAndPassword(auth, email, password).then((res) => {
       console.log(res);
       auth.currentUser.getIdToken().then((token) => {
-        fetch('/api/auth', {method: 'POST', body: JSON.stringify({Token: token})})
+        fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({Token: token})})
         .then(res => {
             res.text().then(res => {
                 console.log(res);

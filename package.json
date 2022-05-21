@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "cookie-parser": "^1.4.6",
     "darkreader": "^4.9.46",
-    "firebase": "^9.7.0",
+    "firebase": "^9.8.1",
     "firebase-admin": "^10.1.0",
     "http-proxy-middleware": "^2.0.6",
     "react": "^18.0.0",

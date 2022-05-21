@@ -42,6 +42,11 @@
     border-radius: 5px;
 }
 
+.links-notification {
+    color: var(--gray3);
+    font-size: small;
+}
+
 @media only screen and (min-width: 890px)
 {
     .classCode-signup {

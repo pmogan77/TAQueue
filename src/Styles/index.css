@@ -141,7 +141,7 @@ button:hover{
 
 .section3{
     padding-top: 75px;
-    padding-bottom: 75px;
+    padding-bottom: 15px;
     display: flexbox;
     justify-content: space-between;
     align-content: center;
@@ -195,4 +195,9 @@ button:hover{
     color: var(--gray2);
     font-size: 16px;
     padding-top: 5px;
+}
+
+.section4{
+    text-align: center;
+    font-weight: bolder;
 }

@@ -10,64 +10,316 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 
+const auth = admin.auth();
+const db = admin.firestore();
+
 app.use((req, res, next) => {
     console.log(`${req.method} request for '${req.url}'`);
     next();
 });
 
-app.use(cookieParser());
+app.use(cookieParser(",oU<jO~ZtrF.,vA"));
+
+app.use(express.json());
+
+const validateUser = async function(token, classCode) {
+    var result = {
+        valid: false,
+        uid: ""
+    };
+
+    console.log("validateUser: "+token);
+
+    var uid;
+    try {
+        uid = await auth.verifyIdToken(token);
+        uid = uid.sub;
+    } catch(error) {
+        console.log(error);
+        return result;
+    }
+
+    var doc;
+    try {
+        doc = await db.collection("Users").doc(uid).get();
+    } catch(error) {
+        console.log(error);
+        return result;
+    }
+
+    return {valid: doc.data().classCode == classCode, uid: uid};
+};
 
 app.get("/api/test", (req, res) => {
-    res.send("Hello World!");
+    // validateUser(req.signedCookies.token, "test").then((result) => {
+    //     console.log(result);
+    // });
+    // db.collection("Classes").doc("test").get().then((doc) => {
+    //     console.log({active: doc.data().active, schedule: doc.data().schedule, meeting: doc.data().meeting});
+    //     res.send({active: doc.data().active, schedule: doc.data().schedule, meeting: doc.data().meeting});
+    // });
+
+    // validateUser(req.signedCookies.token, "test").then((result) => {
+    //     console.log(result);
+    //     if(!result.valid) {
+    //         console.log("Invalid user");
+    //         res.status(401).send("Unauthorized");
+    //         return;
+    //     }
+
+    //     // check if uid matches with classcode
+    //     db.collection("Users").doc(result.uid).get().then((doc) => {
+    //         if(doc.data().classCode != "test") {
+    //             // console.log("Invalid class code");
+    //             res.status(401).send("Unauthorized");
+    //             return;
+    //         }
+
+    //         console.log("Valid user");
+    //         db.collection("Classes").doc("test").get().then((doc2) => {
+    //             console.log({Queue: doc2.data().Queue});
+    //             res.json({Queue: doc2.data().Queue});
+    //         });
+    //     }).catch((error) => {
+    //         console.log(error);
+    //         res.status(500).send("Internal server error");
+    //     })
+    // }).catch((error) => {
+    //     console.log(error);
+    //     res.status(500).send("Internal server error");
+    // })
 });
 
 app.get("/api/classInfo", (req, res) => {
-    res.send("Hello World!");
+    console.log(req.body);
+    db.collection("Classes").doc(req.body.classCode).get().then((doc) => {
+        if(doc.exists) {
+            res.send({active: doc.data().active, schedule: doc.data().schedule, meeting: doc.data().meeting});
+        } else {
+            res.status(404).send("Class not found");
+        }
+    });
 });
 
 app.get("/api/queuePublic", (req, res) => {
-    res.send("Hello World!");
+    db.collection("Classes").doc(req.body.classCode).get().then((doc) => {
+        if(doc.exists) {
+            var result = {Queue: []};
+
+            doc.data().Queue.forEach(entry => {
+                result.Queue.push({
+                    name: entry.name,
+                    format: entry.format
+                });
+            });
+
+            res.json(result);
+        } else {
+            res.status(404).send("Class not found");
+        }
+    });
 });
 
 app.get("/api/queue", (req, res) => {
-    res.send("Hello World!");
-});
-
-app.delete("/api/queueUser", (req, res) => {
-    res.send("Hello World!");
-});
-
-app.delete("/api/queueClear", (req, res) => {
-    res.send("Hello World!");
-});
-
-app.post("/api/auth", (req, res) => {
-    let data = '';
-    req.on('data', chunk => {
-        data += chunk;
-    })
-    req.on('end', () => {
-
-        let options = {
-            maxAge: 1000 * 60 * 60 // would expire after 15 minutes
+    // authenticate user and match user against 
+    validateUser(req.signedCookies.token, req.body.classCode).then((result) => {
+        console.log(result);
+        if(!result.valid) {
+            console.log("Invalid user");
+            res.status(401).send("Unauthorized");
+            return;
         }
 
-        console.log(JSON.parse(data));
-    
-      if(JSON.parse(data).Token!=null||JSON.parse(data).Token!=undefined){
-            res.cookie('token', JSON.parse(data).Token, options);
-      }
-      else{
-        console.log("clearing cookie");
-        res.clearCookie("token");
-      }        
-    
-        res.end('updated user token');
+        // check if uid matches with classcode
+        db.collection("Users").doc(result.uid).get().then((doc) => {
+            if(doc.data().classCode != req.body.classCode) {
+                console.log("Invalid class code");
+                res.status(401).send("Unauthorized");
+                return;
+            }
+
+            console.log("Valid user");
+            db.collection("Classes").doc(req.body.classCode).get().then((doc2) => {
+                console.log({Queue: doc2.data().Queue});
+                res.json({Queue: doc2.data().Queue});
+            }).catch((error) => {
+                console.log(error);
+                res.status(500).send("Internal server error");
+            });
+        }).catch((error) => {
+            console.log(error);
+            res.status(500).send("Internal server error");
+        })
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send("Internal server error");
     })
 });
 
-app.post("/api/queueUser", (req, res) => {
-    res.send("Hello World!");
+app.delete("/api/user", (req, res) => {
+    db.collection("Classes").doc(req.body.classCode).get().then((doc) => {
+        if(!doc.exists) {
+            res.status(404).send("Class not found");
+            return;
+        }
+
+        var queue = doc.data().Queue;
+        // filter out all elements which have same req.body.EID
+        var size = queue.length;
+        var first = queue[0];
+        queue = queue.filter(entry => entry.EID != req.body.EID);
+        if(queue.length == size) {
+            res.status(404).send("User not found");
+            return;
+        }
+
+        // send email to next user if first in line is deleted
+        if(first != queue[0]) {
+            console.log("send email to new first");
+        }
+
+        db.collection("Classes").doc(req.body.classCode).update({Queue: queue}).then((result) => {
+            res.send("Successfully deleted user from queue");
+        });
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send("Internal server error");
+    });
+});
+
+// TODO: DELETE ENTIRE CLASS
+app.delete("/api/class", (req, res) => {
+    validateUser(req.signedCookies.token, req.body.classCode).then((result) => {
+        console.log(result);
+        if(!result.valid) {
+            console.log("Invalid user");
+            res.status(401).send("Unauthorized");
+            return;
+        }
+
+        // check if uid matches with classcode
+        db.collection("Users").doc(result.uid).get().then((doc) => {
+            if(doc.data().classCode != req.body.classCode) {
+                console.log("Invalid class code");
+                res.status(401).send("Unauthorized");
+                return;
+            }
+
+            console.log("Valid user");
+
+            // delete the class information
+            db.collection("Classes").doc(req.body.classCode).delete();
+
+            // delete the user linkage
+            db.collection("Users").doc(result.uid).delete();
+
+            // delete the user
+            auth.deleteUser(result.uid).then(() => {
+                res.clearCookie("token");
+                res.send("Successfully deleted class");
+            }).catch((error) => {
+                console.log(error);
+                res.status(500).send("Internal server error");
+            });
+        }).catch((error) => {
+            console.log(error);
+            res.status(500).send("Internal server error");
+        })
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send("Internal server error");
+    })
+})
+
+const clearQueue = async function(classCode) {
+    try{
+        await db.collection('Classes').doc(classCode).update({
+            Queue: []
+        });
+    } catch(error) {
+        console.log(error);
+    }
+};
+
+app.delete("/api/queueClear", (req, res) => {
+    clearQueue(req.body.classCode).then(() => {
+        res.send("Queue cleared");
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send("Internal server error");
+    });
+});
+
+app.post("/api/auth", (req, res) => {      
+    let options = {
+        maxAge: 1000 * 60 * 60, // would expire after 60 minutes
+        httpOnly: true, // The cookie only accessible by the web server
+        secure: true,
+        signed: true
+    }
+    
+    if(req.body.Token!=null||req.body.Token!=undefined){
+        res.cookie('token', req.body.Token, options);
+    }
+    else{
+    console.log("clearing cookie");
+    res.clearCookie("token");
+    }        
+    
+    res.end('updated user token');
+});
+
+const addIfValid = async function(classCode, EID, format, name, email, desc) {
+    // check if queue exists
+    var doc;
+    try {
+        doc = await db.collection('Classes').doc(classCode).get();
+    } catch(error) {
+        console.log(error);
+        return false;
+    }
+
+    if(!doc.exists) {
+        return false;
+    }
+
+    if(!doc.data().active) {
+        return false;
+    }
+
+    doc.data().Queue.forEach(entry => {
+        if(entry.EID == EID) {
+            return false;
+        }
+    });
+
+    await db.collection('Classes').doc(classCode).update({
+        Queue: admin.firestore.FieldValue.arrayUnion({
+            EID: EID,
+            name: name,
+            email: email,
+            format: format,
+            desc: desc
+        })
+    });
+
+    console.log("Send add to queue email");
+
+    if(doc.data().Queue.length == 0) {
+        console.log("send up next email");
+    }
+
+    return true;
+};
+
+app.post("/api/user", (req, res) => {
+    addIfValid(req.body.classCode, req.body.EID, req.body.format, req.body.name, req.body.email, req.body.desc).then(add => {
+        if(add) {
+            res.send("Added to queue");
+        } else {
+            res.send("Error adding to queue");
+        }
+    });
 });
 
 app.get('*', function(req, res){

@@ -7,7 +7,21 @@ function Join() {
         const EID = document.getElementById("EID-join").value;
         const format = document.getElementById("format-join").value;
         const name = document.getElementById("name-join").value;
-        console.log(classCode, EID, format, name);
+        const desc = document.querySelector('textarea').value;
+        const email = document.getElementById("email-join").value;
+        if(!(EID && format !== 'none' && EID && name && email)) {
+          alert("Please fill out all fields");
+          return;
+        }
+        console.log(classCode, EID, format, name, desc);
+        fetch('/api/user', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify({classCode: classCode, EID: EID, format: format, name: name, desc: desc, email: email})})
+        .then(res => {
+          res.text().then(res => {
+            console.log(res);
+          })
+        })
+        .catch(err => console.log(err));
+        
     }
 
   return (
@@ -20,6 +34,8 @@ function Join() {
                 <input id = "classCode-join" className='input-join' type='text' placeholder='Class code' />
                 <br/>
                 <input id = "EID-join" className='input-join' type='text' placeholder='EID' style = {{marginRight: "10%"}}/>
+                <input id = "email-join" className='input-join' type='email' placeholder='Email' />
+                <br/>
                 <select id="format-join" className='input-join' defaultValue={'none'}>
                     <option value="none" disabled hidden>Format</option>
                     <option value="online">online</option>
