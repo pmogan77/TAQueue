@@ -17,6 +17,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-
 import {
   getAuth,
   onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 import { useState } from "react";
 
@@ -41,39 +42,24 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 function App() {
-  function getCookie(name) {
-    var dc = document.cookie;
-    var prefix = name + "=";
-    var begin = dc.indexOf("; " + prefix);
-    if (begin === -1) {
-      begin = dc.indexOf(prefix);
-      if (begin !== 0) return null;
-    } else {
-      begin += 2;
-      var end = document.cookie.indexOf(";", begin);
-      if (end === -1) {
-        end = dc.length;
-      }
-    }
-    // because unescape has been deprecated, replaced with decodeURI
-    //return unescape(dc.substring(begin + prefix.length, end));
-    return decodeURI(dc.substring(begin + prefix.length, end));
-  }
+  const getCookie = (name) => (
+    document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+  )
   var [signedIn, setSignedIn] = useState(
     getCookie("token") != null && getCookie("token") !== ""
   );
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setSignedIn(true);
-      console.log("signed in");
-    } else {
-      setSignedIn(false);
-      console.log("signed out");
-    }
-  });
+
+  // ensures auth status matches token status
+  if(!signedIn) {
+    signOut(auth).then(() => {
+      console.log("ensure sign out");
+    }).catch(err => {
+      console.log(err);
+    });
+  }
   return (
     <Router>
-      <Header auth={auth} signedIn={signedIn} />
+      <Header auth={auth} signedIn={signedIn} setSignedIn={setSignedIn}/>
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/home" exact element={<Home />} />
@@ -84,9 +70,9 @@ function App() {
         <Route path="/join" element={<Join />} />
         <Route
           path="/login"
-          element={<Login auth={auth} signedIn={signedIn} />}
+          element={<Login auth={auth} signedIn={signedIn} setSignedIn={setSignedIn}/>}
         />
-        <Route path="/signup" element={<Signup auth={auth} db={db} />} />
+        <Route path="/signup" element={<Signup auth={auth} db={db} setSignedIn={setSignedIn}/>} />
         <Route path="/view" element={<View />} />
         <Route path="/dashboard" element={<Dashboard signedIn={signedIn} />} />
         <Route path="/settings" element={<Settings signedIn={signedIn} />} />

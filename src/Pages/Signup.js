@@ -3,7 +3,7 @@ import { getDoc, doc, setDoc, collection } from "https://www.gstatic.com/firebas
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 
 function Signup(props) {  
-  const {auth, db} = props;
+  const {auth, db, setSignedIn} = props;
   const validateCode = async (classCode) => {
     // determine whether classCode is not present in database
 
@@ -70,6 +70,7 @@ function Signup(props) {
       var res = await fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({Token: token})})
       res = await res.text();
       console.log(res);
+      setSignedIn(true);
     } catch(error) {
       alert(error);
       return;

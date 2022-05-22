@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.
 import { Navigate } from 'react-router-dom';
 
 function Login(props) {
-  const {auth, signedIn} = props;
+  const {auth, signedIn, setSignedIn} = props;
   const handleSubmit = (e) => {
     e.preventDefault();
     const classCode = document.getElementById("classCode-login").value;
@@ -19,10 +19,11 @@ function Login(props) {
     signInWithEmailAndPassword(auth, email, password).then((res) => {
       console.log(res);
       auth.currentUser.getIdToken().then((token) => {
-        fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({Token: token})})
+        fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'},body: JSON.stringify({Token: token})})
         .then(res => {
             res.text().then(res => {
                 console.log(res);
+                setSignedIn(true);
             })
         })
         .catch(err => console.log(err));

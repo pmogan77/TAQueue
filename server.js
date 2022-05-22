@@ -187,7 +187,6 @@ app.delete("/api/user", (req, res) => {
     });
 });
 
-// TODO: DELETE ENTIRE CLASS
 app.delete("/api/class", (req, res) => {
     validateUser(req.signedCookies.token, req.body.classCode).then((result) => {
         console.log(result);
@@ -252,8 +251,8 @@ app.delete("/api/queueClear", (req, res) => {
 
 app.post("/api/auth", (req, res) => {      
     let options = {
-        maxAge: 1000 * 60 * 60, // would expire after 60 minutes
-        httpOnly: true, // The cookie only accessible by the web server
+        maxAge: 1000 * 60 * 60 * 8, // would expire after 8 hours
+        // httpOnly: true, // The cookie only accessible by the web server
         secure: true,
         signed: true
     }

@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 
 
 function Header(props) {
-  const {auth, signedIn} = props;
+  const {auth, signedIn, setSignedIn} = props;
   const navSlide = () => {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-links");
@@ -92,8 +92,10 @@ function Header(props) {
 
       fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({Token: null})})
           .then(res => {
-              res.text().then(res => 
-              console.log(res))
+              res.text().then(res => {
+              console.log(res);
+              setSignedIn(false);
+            })
           })
           .catch(err => console.log(err));
     })
