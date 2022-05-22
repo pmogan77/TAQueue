@@ -3,27 +3,17 @@ import { useState } from "react";
 import { Navigate, Link } from 'react-router-dom';
 
 function Dash(props) {
-  const {signedIn} = props;
+  const {signedIn, setSignedIn} = props;
   const users = 3;
   const [open, setOpen] = useState(false);
   const toggleStatus = () => {
     setOpen(!open);
   };
 
-  const deleteClass = () => {
-    if(!window.confirm("Are you sure you want to delete this class?")) {
-      return;
-    }
-    console.log("deleting class");
-    var classCode = document.querySelector(".course-text").innerText;
-    fetch('/api/class', {method: 'DELETE', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({classCode: classCode})}).then(res => {
-      res.text().then(res => {
-        console.log(res);
-        window.location.href = "/";
-      }
-    ).catch(err => console.log(err));
-  });
-  }
+  const handleUnauthorized = () => {
+    setSignedIn(false);
+  };
+
   if(!signedIn) {
     return <Navigate to="/login" />;
   }
@@ -124,9 +114,6 @@ function Dash(props) {
             </tr>
           </tbody>
         </table>
-      </div>
-      <div className="delete-class">
-        <div className="delete-button" onClick={deleteClass}>Delete Class</div>
       </div>
     </div>
   );

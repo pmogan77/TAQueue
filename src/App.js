@@ -74,7 +74,7 @@ function App() {
         />
         <Route path="/signup" element={<Signup auth={auth} db={db} setSignedIn={setSignedIn}/>} />
         <Route path="/view" element={<View />} />
-        <Route path="/dashboard" element={<Dashboard signedIn={signedIn} />} />
+        <Route path="/dashboard" element={<Dashboard signedIn={signedIn} setSignedIn={setSignedIn}/>} />
         <Route path="/settings" element={<Settings signedIn={signedIn} />} />
         <Route path="*" element={<Error />} />
       </Routes>

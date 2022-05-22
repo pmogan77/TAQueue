@@ -28,15 +28,34 @@
     box-sizing: border-box;
 }
 
-.button-settings {
+.change-settings {
     margin-top: 20px;
     width: 60%;
     font-size: 15px;
 }
 
+.delete-settings {
+    
+    border: 2px solid red;
+    color: red !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    width: 60%;
+    font-size: 15px;
+    background-color: transparent;
+    
+}
+
+.delete-settings:hover{
+    background-color: red;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
 @media only screen and (min-width: 950px)
 {
-    #classCode-settings {
+    #meeting-settings {
         margin-right: 10% !important;
     }
 }
