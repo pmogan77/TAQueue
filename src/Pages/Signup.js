@@ -1,9 +1,17 @@
 import "../Styles/Signup.css";
-import { getDoc, doc, setDoc, collection } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
+import {
+  getDoc,
+  doc,
+  setDoc,
+  collection,
+} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
 
-function Signup(props) {  
-  const {auth, db, setSignedIn} = props;
+function Signup(props) {
+  const { auth, db, setSignedIn } = props;
   const validateCode = async (classCode) => {
     // determine whether classCode is not present in database
 
@@ -16,32 +24,43 @@ function Signup(props) {
     // create user in database
     const email = classCode + "@taqueue.com";
     var userCredential;
-    try{
-      userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    } catch(error){
+    try {
+      userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+    } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorCode+" : "+errorMessage);
+      alert(errorCode + " : " + errorMessage);
       return;
     }
 
     console.log("Succesfully created user account");
-    
-    // Signed in 
+
+    // Signed in
     const user = userCredential.user;
 
-    try{
-      await setDoc(doc(collection(db, "Users"), user.uid), {classCode: classCode});
-    } catch(error) {
+    try {
+      await setDoc(doc(collection(db, "Users"), user.uid), {
+        classCode: classCode,
+      });
+    } catch (error) {
       alert(error);
       return;
     }
 
     console.log("Linked user to class");
 
-    try{
-      await setDoc(doc(collection(db, "Classes"), classCode), {active: true, schedule: url, meeting: meeting, Queue: []});
-    } catch(error) {
+    try {
+      await setDoc(doc(collection(db, "Classes"), classCode), {
+        active: true,
+        schedule: url,
+        meeting: meeting,
+        Queue: [],
+      });
+    } catch (error) {
       alert(error);
       return;
     }
@@ -52,30 +71,33 @@ function Signup(props) {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       console.log(res);
-    } catch(error) {
+    } catch (error) {
       alert(error);
       return;
     }
 
     var token;
-    try{
+    try {
       token = await auth.currentUser.getIdToken();
-    } catch(error) {
+    } catch (error) {
       alert(error);
       return;
     }
 
-
-    try{
-      var res = await fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({Token: token})})
+    try {
+      var res = await fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ Token: token }),
+      });
       res = await res.text();
       console.log(res);
       setSignedIn(true);
-    } catch(error) {
+    } catch (error) {
       alert(error);
       return;
     }
-    
+
     window.location.href = "/dashboard";
   };
 
@@ -86,13 +108,13 @@ function Signup(props) {
     const url = document.getElementById("image-url-signup").value;
     const meeting = document.getElementById("meeting-url-signup").value;
 
-    if(!(classCode && password && url && meeting)) {
+    if (!(classCode && password && url && meeting)) {
       alert("Please fill out all fields");
       return;
     }
 
     validateCode(classCode).then((result) => {
-      if(!result) {
+      if (!result) {
         alert("Class code already exists");
         return;
       }
@@ -132,7 +154,9 @@ function Signup(props) {
             type="url"
             placeholder="Meeting URL"
           />
-          <div className="links-notification">*If there are multiple links, please use Linktree</div>
+          <div className="links-notification">
+            *If there are multiple meetings, please use Linktree
+          </div>
           <button className="button-signup2">Signup</button>
         </form>
       </div>

@@ -1,64 +1,68 @@
-.container-join{
-    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    max-width: 60vw;
-    padding: 50px;
-    padding-top: 30px;
-    border-radius: 5px;
-    margin: 40px auto;
-    background-color: var(--offwhite);
+.container-join {
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 60vw;
+  padding: 50px;
+  padding-top: 30px;
+  border-radius: 5px;
+  margin: 40px auto;
+  background-color: var(--offwhite);
 }
 
-.container-join h1{
-    font-size: 50px;
-    margin-bottom: 20px;
-    display: block;
+.container-join h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  display: block;
 }
 
-.form-join input{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.form-join input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .button-join {
-    margin-top: 20px;
-    width: 60%;
-    font-size: 15px;
+  margin-top: 20px;
+  width: 60%;
+  font-size: 15px;
 }
 
-.form-join select{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 205px;
+.form-join select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 205px;
 }
 
-.form-join textarea{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: none;
-    height: 150px;
-    width: 75%;
+.form-join textarea {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: none;
+  height: 150px;
+  width: 75%;
 }
 
-@media only screen and (max-width: 925px)
-{
-    .form-join input{
-        margin:8px 0px !important;
-    }
+@media only screen and (max-width: 925px) {
+  .form-join input {
+    margin: 8px 0px !important;
+  }
+}
+
+.email-notification {
+  color: var(--gray3);
+  font-size: small;
 }

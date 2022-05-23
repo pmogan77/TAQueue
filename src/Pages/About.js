@@ -1,6 +1,6 @@
 import "../Styles/About.css";
 import praveen from "../media/praveen.jpg";
-import study from '../media/study.svg'
+import study from "../media/study.svg";
 
 function About() {
   return (
@@ -27,7 +27,7 @@ function About() {
 
       <div className="section2-overall-about">
         <div className="section2-about">
-            <img src={study} alt="studying girl"></img>
+          <img src={study} alt="studying girl"></img>
         </div>
 
         <div className="section2a-about">
@@ -68,13 +68,13 @@ function About() {
               different classes. We
             </div>
             <div style={{ fontSize: "32px", fontWeight: "bolder" }}>
-            are a group of students 
+              are a group of students
             </div>
             <div style={{ fontSize: "32px", fontWeight: "bolder" }}>
-            at the University of Texas
+              at the University of Texas
             </div>
             <div style={{ fontSize: "32px", fontWeight: "bolder" }}>
-            at Austin.
+              at Austin.
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ function About() {
           style={{
             fontWeight: "bolder",
             fontSize: "64px",
-            marginBottom: "50px"
+            marginBottom: "50px",
           }}
         >
           Meet the Team

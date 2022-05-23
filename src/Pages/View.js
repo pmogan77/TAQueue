@@ -19,7 +19,7 @@ function View() {
           placeholder="Class code"
           style={{ marginRight: "40px" }}
         />
-        <select id="format-view" className="input-view" defaultValue={'none'}>
+        <select id="format-view" className="input-view" defaultValue={"none"}>
           <option value="none" disabled hidden>
             Format (optional)
           </option>
@@ -30,11 +30,15 @@ function View() {
         <button className="button-view">View Queue</button>
       </form>
 
-      <div className="meeting-link"><a href="http://google.com" target="_blank" rel="noreferrer">Meeting Link</a></div>
+      <div className="meeting-link">
+        <a href="http://google.com" target="_blank" rel="noreferrer">
+          Meeting Link
+        </a>
+      </div>
       <div className="container-view">
         <table className="table-view">
           <thead>
-            <tr style={{border: "none"}}>
+            <tr style={{ border: "none" }}>
               <th></th>
               <th>Name</th>
               <th>Format</th>

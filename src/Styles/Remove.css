@@ -1,42 +1,41 @@
-.container-remove{
-    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    max-width: 60vw;
-    padding: 50px;
-    padding-top: 30px;
-    border-radius: 5px;
-    margin: 40px auto;
-    background-color: var(--offwhite);
+.container-remove {
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 60vw;
+  padding: 50px;
+  padding-top: 30px;
+  border-radius: 5px;
+  margin: 40px auto;
+  background-color: var(--offwhite);
 }
 
-.container-remove h1{
-    font-size: 50px;
-    margin-bottom: 20px;
-    display: block;
+.container-remove h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  display: block;
 }
 
-.form-remove input{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.form-remove input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .button-remove {
-    margin-top: 20px;
-    width: 60%;
-    font-size: 15px;
+  margin-top: 20px;
+  width: 60%;
+  font-size: 15px;
 }
 
-@media only screen and (min-width: 950px)
-{
-    #classCode-remove {
-        margin-right: 10% !important;
-    }
+@media only screen and (min-width: 950px) {
+  #classCode-remove {
+    margin-right: 10% !important;
+  }
 }

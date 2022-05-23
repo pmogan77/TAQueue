@@ -1,288 +1,336 @@
 .class-info-container {
-    text-align: center;
-    margin: 40px auto;
-    padding: 0px 50px;
+  text-align: center;
+  margin: 40px auto;
+  padding: 0px 50px;
 }
 
 .class-info-container h2 {
-    display: inline-block;
+  display: inline-block;
 }
 
 .num-people {
-    margin-right: 10vw;
+  margin-right: 10vw;
 }
 
-.container-dash{
-    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    max-width: 90vw;
-    padding: 50px;
-    padding-top: 30px;
-    border-radius: 5px;
-    margin: 40px auto;
-    background-color: var(--offwhite);
-    overflow-x: auto;
+.container-dash {
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 90vw;
+  padding: 50px;
+  padding-top: 30px;
+  border-radius: 5px;
+  margin: 40px auto;
+  margin-bottom: 20px;
+  background-color: var(--offwhite);
+  overflow-x: auto;
 }
 
 .container-dash::-webkit-scrollbar {
-    width: 15px;
+  width: 15px;
 }
 
 .container-dash::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 15px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }
 
 .container-dash::-webkit-scrollbar-thumb {
-    border-radius: 15px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  border-radius: 15px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
-.form-dash{
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    max-width: 90vw;
-    padding: 10px 50px;
-    border-radius: 5px;
-    margin: 0px auto;
+.form-dash {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 90vw;
+  padding: 10px 50px;
+  border-radius: 5px;
+  margin: 0px auto;
 }
 
-.container-dash h1{
-    font-size: 50px;
-    margin-bottom: 20px;
-    display: block;
+.container-dash h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  display: block;
 }
 
-.form-dash input{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.form-dash input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .button-dash {
-    margin-top: 20px;
-    width: 60%;
-    font-size: 15px;
+  margin-top: 20px;
+  width: 60%;
+  font-size: 15px;
 }
 
-.form-dash select{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 205px;
+.form-dash select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 205px;
 }
 
-@media only screen and (max-width: 925px)
-{
-    .form-dash input{
-        margin:8px 0px !important;
-    }
+@media only screen and (max-width: 925px) {
+  .form-dash input {
+    margin: 8px 0px !important;
+  }
 }
 
-.course-text{
-    text-align: center;
-    font-size: 40px;
-    margin-top: 40px;
+.course-text {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 40px;
 }
 
 .table-dash td {
-    padding: 30px 20px;
-    text-align: left;
+  padding: 30px 20px;
+  text-align: left;
 }
 
-.table-dash{
-    margin: auto;
-    border-collapse: collapse;
+.table-dash {
+  margin: auto;
+  border-collapse: collapse;
 }
 
 .table-dash hr {
-    width: 100%;
+  width: 100%;
 }
 
 .table-dash th {
-    color: var(--gray2);
-    padding: 0px 20px;
-    text-align: left;
+  color: var(--gray2);
+  padding: 0px 20px;
+  text-align: left;
 }
 
 .table-dash td {
-    font-size: 23px;
+  font-size: 23px;
 }
 
-.table-dash tr:nth-child(even){
-    border-bottom: 1px solid black;
+.table-dash tr:nth-child(even) {
+  border-bottom: 1px solid black;
 }
 
 .problem {
-    font-size: 17px !important;
-    color: var(--gray2) !important;
-    padding-top: 0px !important;
+  font-size: 17px !important;
+  color: var(--gray2) !important;
+  padding-top: 0px !important;
 }
 
 .queue-status-text {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    transform: translateY(-5px);
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-    display: inline-block;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    
-  }
-  
-  input:checked + .slider {
-    background-color: var(--dark_primary);
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px var(--dark_primary);
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  transform: translateY(-5px);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: inline-block;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--dark_primary);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--dark_primary);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 .table-dash ion-icon {
-    font-size: 60px;
-    cursor: pointer;
-    margin-left: 75px;
-    transform: scale(1.0, 1.0);
-    transition: all .2s ease 0s;
-
+  font-size: 60px;
+  cursor: pointer;
+  margin-left: 75px;
+  transform: scale(1, 1);
+  transition: all 0.2s ease 0s;
 }
 
 .table-dash ion-icon:hover {
-    transform: scale(1.5, 1.5);
-    color: red;
+  transform: scale(1.5, 1.5);
+  color: red;
 }
-
 
 .table-dash tr:first-child td .position {
-    padding-left: 14px;
-    padding-right: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
-.input-dash{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 205px;
+.input-dash {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 205px;
 }
 
-.settings-dash{
-    display: inline-block;
-    padding: 12px 20px;
-    margin: 8px 0;
-    margin-left: 40px;
+.settings-dash {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 8px 0;
+  margin-left: 40px;
 }
 
 .settings-dash ion-icon {
   vertical-align: middle;
   font-size: 30px;
   cursor: pointer;
-  transition: all .3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .settings-dash ion-icon:hover {
-    transition: all .3s ease 0s;
-    color: var(--dark_primary);
-    transform: rotate(50deg);
+  transition: all 0.3s ease 0s;
+  color: var(--dark_primary);
+  transform: rotate(50deg);
 }
 
 .queue-status {
-    margin-right: 10vw;
+  margin-right: 10vw;
 }
 
-@media only screen and (max-width: 755px)
-{
-    .num-people, .queue-status {
-        margin-right: 0vw;
-        display: block;
-        padding-bottom: 10px;
-    }
+@media only screen and (max-width: 755px) {
+  .num-people,
+  .queue-status {
+    margin-right: 0vw;
+    display: block;
+    padding-bottom: 10px;
+  }
 }
 
-.delete-class{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+.delete-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .delete-button {
-    font-size: 20px;
-    text-align: center;
-    border: 2px solid red;
-    padding: 7px 10px;
-    color: red;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid red;
+  padding: 7px 10px;
+  color: red;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.delete-button:hover{
-    background-color: red;
-    color: white;
-    transition: all 0.3s ease;
+.delete-button:hover {
+  background-color: red;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* make button position absolute and in the bottom right corner of the page */
+.create-button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.create-button {
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid var(--dark_primary);
+  padding: 7px 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.create-button ion-icon {
+  vertical-align: middle;
+  font-size: 30px;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  color: var(--dark_primary);
+}
+
+/*  */
+.clear-button-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.clear-button {
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid red;
+  padding: 7px 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.clear-button:hover {
+  background-color: red;
+  color: white;
+  transition: all 0.3s ease;
 }

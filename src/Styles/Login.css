@@ -1,66 +1,63 @@
-.container-login{
-    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    max-width: 60vw;
-    padding: 50px;
-    padding-top: 30px;
-    border-radius: 5px;
-    margin: 40px auto;
-    background-color: var(--offwhite);
+.container-login {
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 60vw;
+  padding: 50px;
+  padding-top: 30px;
+  border-radius: 5px;
+  margin: 40px auto;
+  background-color: var(--offwhite);
 }
 
-.container-login h1{
-    font-size: 50px;
-    margin-bottom: 20px;
-    display: block;
+.container-login h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  display: block;
 }
 
-.form-login input{
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.form-login input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .button-login {
-    margin-top: 20px;
-    width: 60%;
-    font-size: 15px;
+  margin-top: 20px;
+  width: 60%;
+  font-size: 15px;
 }
 
 .button-signup {
-    width: 60%;
-    font-size: 15px;
-    border: 2px solid var(--dark_primary);
-    background-color: transparent;
-    color: var(--dark_primary) !important;
+  width: 60%;
+  font-size: 15px;
+  border: 2px solid var(--dark_primary);
+  background-color: transparent;
+  color: var(--dark_primary) !important;
 }
 
-.forgot-password-login{
-    font-size: 15px;
-    color: var(--dark_primary);
-    margin-top: 15px;
+.forgot-password-login {
+  font-size: 15px;
+  color: var(--dark_primary);
+  margin-top: 15px;
 }
 
-.forgot-password-login span{
-    cursor: pointer;
+.forgot-password-login span {
+  cursor: pointer;
 }
 
-.forgot-password-login span:hover{
-    text-decoration: underline;
+.forgot-password-login span:hover {
+  text-decoration: underline;
 }
 
-@media only screen and (min-width: 950px)
-{
-    .classCode-login {
-        margin-right: 10% !important;
-    }
+@media only screen and (min-width: 950px) {
+  .classCode-login {
+    margin-right: 10% !important;
+  }
 }
-
-

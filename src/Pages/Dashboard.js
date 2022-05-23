@@ -1,20 +1,63 @@
 import "../Styles/Dashboard.css";
 import { useState } from "react";
-import { Navigate, Link } from 'react-router-dom';
+import { Navigate, Link } from "react-router-dom";
 
 function Dash(props) {
-  const {signedIn, setSignedIn} = props;
+  const { signedIn, handleUnauthorized } = props;
   const users = 3;
   const [open, setOpen] = useState(false);
-  const toggleStatus = () => {
+
+  const toggleStatus = async () => {
     setOpen(!open);
+    var classCode = await fetch("/api/classCode", { method: "GET" });
+    classCode = await classCode.text();
+    if (
+      classCode === "User not found" ||
+      classCode === "Internal server error"
+    ) {
+      handleUnauthorized();
+      return;
+    }
+    var res = await fetch("/api/editClass", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ active: !open, classCode: classCode }),
+    });
+    res = await res.text();
+    if (res === "Unauthorized") {
+      alert("Session has expired. Please log in again.");
+      handleUnauthorized();
+    }
   };
 
-  const handleUnauthorized = () => {
-    setSignedIn(false);
+  const deleteQueue = async () => {
+    if (!window.confirm("Are you sure you want to clear the queue?")) {
+      return;
+    }
+    var classCode = await fetch("/api/classCode", { method: "GET" });
+    classCode = await classCode.text();
+    if (
+      classCode === "User not found" ||
+      classCode === "Internal server error"
+    ) {
+      handleUnauthorized();
+      return;
+    }
+    var res = await fetch("/api/queueClear", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ classCode: classCode }),
+    });
+    res = await res.text();
+    if (res === "Unauthorized") {
+      alert("Session has expired. Please log in again.");
+      handleUnauthorized();
+    } else {
+      alert("Queue has been cleared");
+    }
   };
 
-  if(!signedIn) {
+  if (!signedIn) {
     return <Navigate to="/login" />;
   }
   return (
@@ -36,7 +79,7 @@ function Dash(props) {
             <span className="slider round"></span>
           </label>
         </span>
-        <select id="format-dash" className="input-dash" defaultValue={'none'}>
+        <select id="format-dash" className="input-dash" defaultValue={"none"}>
           <option value="none" disabled hidden>
             Format (optional)
           </option>
@@ -114,6 +157,23 @@ function Dash(props) {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div
+        className="create-button-container"
+        onClick={() =>
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth",
+          })
+        }
+      >
+        <button className="create-button">
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div className="clear-button-container" onClick={deleteQueue}>
+        <button className="clear-button">Clear Queue</button>
       </div>
     </div>
   );
