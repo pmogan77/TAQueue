@@ -85,16 +85,11 @@ const sendEmail = function (name, EID, classCode, email, position, form) {
   function ordinal_suffix_of(i) {
     var j = i % 10,
       k = i % 100;
-    if (j == 1 && k != 11) {
-      return i + "st";
+    if(j in [1,2,3] && !(k in [11, 12, 13])) {
+      return i + ["st", "nd", "rd"][j % 4];
+    } else {
+      return i + "th";
     }
-    if (j == 2 && k != 12) {
-      return i + "nd";
-    }
-    if (j == 3 && k != 13) {
-      return i + "rd";
-    }
-    return i + "th";
   }
 
   position = ordinal_suffix_of(position);
