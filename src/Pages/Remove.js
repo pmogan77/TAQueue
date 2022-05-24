@@ -29,6 +29,7 @@ function Remove() {
             className="input-remove"
             type="text"
             placeholder="Class Code"
+            name = "classCode"
             style={{ marginRight: "0%" }}
           />
           <input
@@ -36,6 +37,7 @@ function Remove() {
             className="input-remove"
             type="text"
             placeholder="EID"
+            name = "EID"
           />
           <br />
           <button className="button-remove">Remove</button>

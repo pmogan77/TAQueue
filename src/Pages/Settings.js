@@ -1,9 +1,47 @@
 import "../Styles/Settings.css";
 import { Navigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Loading from "./Loading";
 
 function Settings(props) {
   const { signedIn, handleUnauthorized } = props;
+  const [meeting, setMeeting] = useState();
+  const [schedule, setSchedule] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      var classCode = await fetch("/api/classCode", { method: "GET" });
+      classCode = await classCode.text();
+      if (
+        classCode === "User not found" ||
+        classCode === "Internal server error"
+      ) {
+        handleUnauthorized();
+        return;
+      }
+
+      // need to call /api/classInfo to get meeting info
+      var meetingData;
+      var scheduleData;
+      try {
+        var res = await fetch("/api/classInfo", {
+          method: "SEARCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ classCode: classCode }),
+        });
+        var classInfo = await res.json();
+        meetingData = classInfo.meeting;
+        scheduleData = classInfo.schedule;
+      } catch (err) {
+        alert(err);
+        return;
+      }
+
+      setMeeting(meetingData);
+      setSchedule(scheduleData);
+    }
+    fetchData();
+  });
 
   const editClass = async (e) => {
     e.preventDefault();
@@ -70,34 +108,40 @@ function Settings(props) {
 
   if (!signedIn) {
     return <Navigate to="/login" />;
+  } else if (meeting === undefined || schedule === undefined) {
+    return (
+      <Loading width={"200px"}/>
+    );
   }
   return (
     <div>
       <div className="container-settings">
         <h1>Settings</h1>
         <div className="break"></div>
-        <form className="form-settings">
+        <form className="form-settings" onSubmit={editClass}>
           <input
             id="meeting-settings"
             className="input-settings"
-            type="URL"
+            type="url"
             placeholder="Meeting URL"
+            name="meeting"
             style={{ marginRight: "0%" }}
+            defaultValue={meeting}
           />
           <input
             id="schedule-settings"
             className="input-settings"
-            type="URL"
+            type="url"
             placeholder="Schedule Image URL"
+            name="schedule"
+            defaultValue={schedule}
           />
           <br />
-          <button className="change-settings" onClick={editClass}>
-            Change
-          </button>
-          <button className="delete-settings" onClick={deleteClass}>
-            Delete Class
-          </button>
+          <button className="change-settings">Change</button>
         </form>
+        <button className="delete-settings" onClick={deleteClass}>
+          Delete Class
+        </button>
       </div>
     </div>
   );

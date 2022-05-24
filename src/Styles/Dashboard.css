@@ -327,10 +327,12 @@ input:checked + .slider:before {
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  color: red !important;
 }
 
 .clear-button:hover {
   background-color: red;
   color: white;
   transition: all 0.3s ease;
+  color: white !important;
 }

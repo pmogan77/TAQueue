@@ -1,81 +1,105 @@
 import "../Styles/View.css";
+import { useState } from "react";
+import ResultView from "./ResultView";
+import Loading from "./Loading";
 
 function View() {
-  const handleSubmit = (e) => {
+  const [meeting, setMeeting] = useState();
+  const [queue, setQueue] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    const interval_id = window.setInterval(function(){}, Number.MAX_SAFE_INTEGER);
+
+    // Clear any timeout/interval up to that id
+    for (let i = 1; i < interval_id; i++) {
+      window.clearInterval(i);
+    }
+    
     e.preventDefault();
     const classCode = document.getElementById("classCode-view").value;
     const format = document.getElementById("format-view").value;
     console.log(classCode, format);
+    setLoading(true);
+    setMeeting(undefined);
+    
+    var queueData;
+    try {
+      var res = await fetch("/api/queuePublic", {
+        method: "SEARCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ classCode: classCode }),
+      });
+      queueData = await res.json();
+      queueData = queueData.Queue;
+    } catch (err) {
+      alert("Unable to load queue");
+      setLoading(false);
+      return;
+    }
+
+    var meetingData;
+    try {
+      var res2 = await fetch("/api/classInfo", {
+        method: "SEARCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ classCode: classCode }),
+      });
+      meetingData = await res2.json();
+      meetingData = meetingData.meeting;
+    } catch (err) {
+      alert("Unable to load meeting info");
+      setLoading(false);
+      return;
+    }
+
+    console.log("Format is: "+format);
+    if(format === "online") {
+      queueData = queueData.filter(item => item.format === "online");
+    } else if(format === "in-person") {
+      queueData = queueData.filter(item => item.format === "in-person");
+    }
+
+    console.log(queueData);
+    console.log(meetingData);
+    setLoading(false);
+    setMeeting(meetingData);
+    setQueue(queueData);
+
+    setInterval(function(){
+      /// call your function here
+      console.log("Refreshing queue: "+classCode);
+    }, 10000);
   };
 
   return (
     <div>
-      <h1 className="view-text">View Queue</h1>
-      <form className="form-view" onSubmit={handleSubmit}>
-        <input
-          id="classCode-view"
-          className="input-view"
-          type="text"
-          placeholder="Class code"
-          style={{ marginRight: "40px" }}
-        />
-        <select id="format-view" className="input-view" defaultValue={"none"}>
-          <option value="none" disabled hidden>
-            Format (optional)
-          </option>
-          <option value="online">online</option>
-          <option value="in-person">in-person</option>
-        </select>
-        <br />
-        <button className="button-view">View Queue</button>
-      </form>
-
-      <div className="meeting-link">
-        <a href="http://google.com" target="_blank" rel="noreferrer">
-          Meeting Link
-        </a>
-      </div>
       <div className="container-view">
-        <table className="table-view">
-          <thead>
-            <tr style={{ border: "none" }}>
-              <th></th>
-              <th>Name</th>
-              <th>Format</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <span className="position">01</span>
-              </td>
-              <td>John</td>
-              <td>online</td>
-            </tr>
-            <tr>
-              <td>
-                <span className="position">02</span>
-              </td>
-              <td>Jane</td>
-              <td>in-person</td>
-            </tr>
-            <tr>
-              <td>
-                <span className="position">03</span>
-              </td>
-              <td>Bob</td>
-              <td>in-person</td>
-            </tr>
-            <tr>
-              <td>
-                <span className="position">04</span>
-              </td>
-              <td>Mary</td>
-              <td>online</td>
-            </tr>
-          </tbody>
-        </table>
+        <h1 className="view-text">View Queue</h1>
+        <form className="form-view" onSubmit={handleSubmit}>
+          <input
+            id="classCode-view"
+            className="input-view"
+            type="text"
+            placeholder="Class code"
+            name="classCode"
+            style={{ marginRight: "40px" }}
+            required
+          />
+          <select id="format-view" className="input-view" defaultValue={"none"}>
+            <option value="none" disabled hidden>
+              Format (optional)
+            </option>
+            <option value="online">online</option>
+            <option value="in-person">in-person</option>
+            <option value="both">both</option>
+          </select>
+          <br />
+          <button className="button-view">View Queue</button>
+        </form>
       </div>
+      {loading && (<Loading/>)}
+      <ResultView meeting={meeting} queue={queue}></ResultView>
     </div>
   );
 }
