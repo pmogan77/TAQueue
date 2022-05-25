@@ -1,4 +1,4 @@
-import "../Styles/About.css";
+// import "../Styles/About.css";
 import praveen from "../media/praveen.jpg";
 import study from "../media/study.svg";
 
