@@ -72,6 +72,7 @@ function Join() {
             className="input-join"
             type="email"
             placeholder="Email"
+            multiple
           />
           <br />
           <select id="format-join" className="input-join" defaultValue={"none"}>
