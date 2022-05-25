@@ -275,6 +275,16 @@ app.get("/api/classCode", (req, res) => {
     });
 });
 
+app.get(("/sw.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "sw.js"));
+  }
+));
+
+app.get(("/register.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "register.js"));
+  }
+));
+
 app.delete("/api/user", (req, res) => {
   db.collection("Classes")
     .doc(req.body.classCode)
