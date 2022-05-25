@@ -16,14 +16,14 @@ var clientCert = process.env.CLIENT_X509_CERT_URL;
 var serviceAccount = {
   type: "service_account",
   project_id: "ta-queue-5552c",
-  private_key_id: "006a3d079de73a5242d81f8f3b0947ef8ffbcee8",
-  private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8c8A9smiO3e5/\nJsVvHNisadig19FTjZzgqAoYymRtR+RoqZigZvWdXUsMoiCeJDit5rwze5rvs4wP\nHaaGec+E3Y0hV0RRhEiaaBDZOb1vlNsmK1/c2D6meBoyQRlEQoeQR8PMvBx3PIvd\nYuEZkFuNwgkdg1OaVhi3Tij3ahVtAXmAFWlDORvgFtyMxdhzUeOtK8fDSj7++/DZ\ndUDvRkdp9h0PCPqj/GOKt3UL9WhqfZ7RK5OZAO7ZpmZFaAdL5kVa7tqsH4BDgYdc\nYla8GH5bPRoKCj6tT9RsPwWH7Ftt684EQfjYcQmD+z2dgiRxWTY/6ReLzHemaaGv\n42Qmz/sFAgMBAAECggEAJ7pfNKJ/2F6BAN0zkhEKvI4z1PSqdGrOP64tMry4HzGg\nvU/DlU0fSmV4hNlI9w27xS13T4MnTpETXbxqdr8HOINcVUMIbAbvJ13471J01SkU\nah+Kvgv4aS+4lg+TPAiqe4glhuvBNIHXGnzV54W/R0s4kLg2z7qGy1321PHQQoJI\nbJU46NzfLdcRIAjS5in1WnImW0A0PHvY72Ek6WPqUHE7B23IJyGKD/WdfJhnnjmA\n6VEw1+2EWGULQrYSXdK5NHwwzOSC19zQxY0hfBQahM4Da2IKOZCQz0ETJ1ObcrzM\nfPL3FVjlbeRBhHE7BZN3TWO4Ivy7m5UXgyiEVM8MoQKBgQDiRMmoetVRdTeqlFpq\nT/9SncJmCgtSYS54KeZs5XuKmBvNoy8Nb6YzoTNTINiGHltYabymDj8wefcoXR+s\nZmVmvL8xU5IN6LQwu5vf996bhuuMSly0Ex/dwO+LemRpwD+Cy7gf05wARhERMUVY\nIBljbeFJ2vO12nmcXTsrwAg+EwKBgQDVNuR7AATFn6z2i5RvyY0NyqPrVTbt3RjS\ndKunhWdaKdaKQgjGuIes2Hmnu5GdPuuXu3FoaD+pztWREjVJeyAXQghuCEJx+ijv\nadG/YPQ9+fXK8YgVIlzVnclHy0sd4f6561GXpFUPC6HYqF6a+kOWUzwHFNB7YTI5\nWS3J3lelhwKBgQCG9obegt4Ip4Vbrv+7WBowej9BRA56xdLFBCEYpU0qXw5+ey6O\nsiENvMJzfC0K2sKbmv5Wgjr4vFdLcTh6Sd2ECWN1laaRu1L3moAgeKYEWNbZKGXh\nV2Lzj6iSpp+MYIrBhqg9+6ealjCJ87ysEwFxyFHQDtS9jSJqvUWVFAcWlwKBgDMZ\nq9ra30nqAg841sOP/7FtfqnZS4fotJlEAxvsOh/+5P9P4kCWW1YOr+GGb9jLCrXb\n48tNKOzuuHrDbWgGDWPlnJWafypH9WWj6/Q9LWxpKwKPrri5+pvr7CC71W39CwrO\nHkkExqoLdKezerEUB/zQSBO+ZlUbr2jVOccm9cSjAoGAHwv5Y6/TdZqmrOJTOdQ1\nJ9pqT/GZinSb4eFRLh6tWjqaH+iLZH4UJGtEuZSkTZ+YMIcjOJuJMGRgWnEW4vcn\nsuSWiUGsHQm/on2/FAx6uFmkoFt4Oeym1FLi/VQ5CGPb6Tc/Lys8W01W1WjFKcPA\nL338LaU/Sz6vheGP1o6lvEE=\n-----END PRIVATE KEY-----\n",
-  client_email: "firebase-adminsdk-k20e3@ta-queue-5552c.iam.gserviceaccount.com",
-  client_id: "117595744228915374127",
+  private_key_id: privateKeyId,
+  private_key: privateKey,
+  client_email: clientEmail,
+  client_id: clientID,
   auth_uri: "https://accounts.google.com/o/oauth2/auth",
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-  client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-k20e3%40ta-queue-5552c.iam.gserviceaccount.com",
+  client_x509_cert_url: clientCert,
 };
 
 admin.initializeApp({
