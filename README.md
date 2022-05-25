@@ -1,18 +1,8 @@
 Todo: 
- - [ ] connecting to Firestore (database)
- - [ ] implementing authentication
- - [ ] creating pathways between frontend and backend API to get data
- - [ ] place data on frontend using React hooks
  - [ ] implement security features via Firebase Security Rules (only allow from deployed url)
- - [ ] Prettify code
- - [ ] if already logged in (localstorage), redirect to dashboard when login
  - [ ] add about page link
- - [ ] allow teachers to change meeting and schedule links
- - [ ] figure out how to make live view of queuees
- - [ ] edit link on view queue email sent
 
 Security Features
- - [ ] use .env variables
  - [ ] implement firestore security rules
  - [ ] clean input data to prevent injection attacks
 

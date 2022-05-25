@@ -54,7 +54,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cookieParser(",oU<jO~ZtrF.,vA"));
+app.use(cookieParser(process.env.SECRET));
 
 app.use(express.json());
 
