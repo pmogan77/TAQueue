@@ -42,13 +42,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-if(process.env.NODE_ENV === "production") {
-  app.use(express.static(__dirname + "/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/build/index.html");
-  });
-}
-
 app.use((req, res, next) => {
   console.log(`${req.method} request for '${req.url}'`);
   next();
@@ -581,6 +574,13 @@ app.post("/api/editClass", (req, res) => {
       res.status(500).send("Internal server error");
     });
 });
+
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static(__dirname + "/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(__dirname + "/build/index.html");
+  });
+}
 
 app.get("*", function (req, res) {
   res.end("No get pathway found.");

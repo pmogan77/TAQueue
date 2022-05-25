@@ -1,14 +1,9 @@
 Todo: 
- - [ ] implement security features via Firebase Security Rules (only allow from deployed url)
  - [ ] add about page link
-
-Security Features
- - [ ] implement firestore security rules
- - [ ] clean input data to prevent injection attacks
 
 Future Features
  - [ ] email
-   - [ ] used for password resettig, login/signup, sending emails to queue leaders
+   - [ ] used for password resettig, login/signup
  - [ ] Next.js
  - [ ] minor bug fixes/UI changes?
  - [ ] seperate accounts for TAs/professors; setting pages?
