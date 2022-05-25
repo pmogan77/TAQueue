@@ -84,7 +84,7 @@ const sendMail = function (name, EID, classCode, email, position, form) {
   function ordinal_suffix_of(i) {
     var j = i % 10,
       k = i % 100;
-    if(j in [1,2,3] && !(k in [11, 12, 13])) {
+    if([1,2,3].includes(j) && !([11, 12, 13].includes(k))) {
       return i + ["st", "nd", "rd"][j % 4];
     } else {
       return i + "th";
