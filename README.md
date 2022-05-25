@@ -9,6 +9,7 @@ Todo:
  - [ ] add about page link
  - [ ] allow teachers to change meeting and schedule links
  - [ ] figure out how to make live view of queuees
+ - [ ] edit link on view queue email sent
 
 Security Features
  - [ ] use .env variables

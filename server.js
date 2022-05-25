@@ -1,3 +1,4 @@
+const fs = require("fs");
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
@@ -80,7 +81,7 @@ const validateUser = async function (token, classCode) {
   return { valid: doc.data().classCode == classCode, uid: uid };
 };
 
-const sendMail = function (name, EID, classCode, email, position, form) {
+const sendEmail = function (name, EID, classCode, email, position, form) {
   function ordinal_suffix_of(i) {
     var j = i % 10,
       k = i % 100;
@@ -99,8 +100,9 @@ const sendMail = function (name, EID, classCode, email, position, form) {
   data = data.replaceAll("{{NAME}}", name);
   data = data.replaceAll("{{ student_name }}", name);
   data = data.replaceAll("{{ remove_code }}", EID);
-  data = data.replaceAll("{{ view_link }}", viewLink);
+  data = data.replaceAll("{{view_link}}", viewLink);
   data = data.replaceAll("{{POSITION}}", position);
+  console.log(data);
 
   transporter
     .sendMail({
@@ -150,7 +152,7 @@ app.get("/api/test", (req, res) => {
   // })
 });
 
-app.get("/api/classInfo", (req, res) => {
+app.search("/api/classInfo", (req, res) => {
   console.log(req.body);
   db.collection("Classes")
     .doc(req.body.classCode)
@@ -161,6 +163,7 @@ app.get("/api/classInfo", (req, res) => {
           active: doc.data().active,
           schedule: doc.data().schedule,
           meeting: doc.data().meeting,
+          classCode: req.body.classCode
         });
       } else {
         res.status(404).send("Class not found");
@@ -168,7 +171,7 @@ app.get("/api/classInfo", (req, res) => {
     });
 });
 
-app.get("/api/queuePublic", (req, res) => {
+app.search("/api/queuePublic", (req, res) => {
   db.collection("Classes")
     .doc(req.body.classCode)
     .get()
@@ -182,7 +185,7 @@ app.get("/api/queuePublic", (req, res) => {
             format: entry.format,
           });
         });
-
+        console.log("Queue: " + result.Queue);
         res.json(result);
       } else {
         res.status(404).send("Class not found");
@@ -190,7 +193,7 @@ app.get("/api/queuePublic", (req, res) => {
     });
 });
 
-app.get("/api/queue", (req, res) => {
+app.search("/api/queue", (req, res) => {
   // authenticate user and match user against
   validateUser(req.signedCookies.token, req.body.classCode)
     .then((result) => {
@@ -282,6 +285,8 @@ app.delete("/api/user", (req, res) => {
       // send email to next user if first in line is deleted
       if (first != queue[0]) {
         console.log("send email to new first");
+        // name, EID, classCode, email, position, form
+        sendEmail(queue[0].name, queue[0].EID, req.body.classCode, queue[0].email, 1, "first");
       }
 
       db.collection("Classes")
@@ -457,9 +462,12 @@ const addIfValid = async function (classCode, EID, format, name, email, desc) {
     });
 
   console.log("Send add to queue email");
+  sendEmail(name, EID, classCode, email, doc.data().Queue.length + 1, "add");
 
   if (doc.data().Queue.length == 0) {
     console.log("send up next email");
+    sendEmail(name, EID, classCode, email, 1, "first");
+
   }
 
   return { add: true, message: "Added to queue" };
