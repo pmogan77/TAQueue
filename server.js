@@ -100,7 +100,7 @@ const sendEmail = function (name, EID, classCode, email, position, form) {
   }
 
   position = ordinal_suffix_of(position);
-  const viewLink = "https://www.google.com/";
+  const viewLink = "https://help-hours.herokuapp.com/view";
   var data = fs.readFileSync(`./src/email/${form}.html`, "utf8");
   data = data.replaceAll("{{COURSE_NAME}}", classCode);
   data = data.replaceAll("{{ COURSE_NAME }}", classCode);
