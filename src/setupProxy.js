@@ -1,11 +1,11 @@
-// const { createProxyMiddleware } = require("http-proxy-middleware");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
-// module.exports = function (app) {
-//   app.use(
-//     "/api",
-//     createProxyMiddleware({
-//       target: "help-hours.herokuapp.com:"+process.env.PORT,
-//       changeOrigin: true,
-//     })
-//   );
-// };
+module.exports = function (app) {
+  app.use(
+    "/api",
+    createProxyMiddleware({
+      target: "0.0.0.0:"+process.env.PORT,
+      changeOrigin: true,
+    })
+  );
+};
