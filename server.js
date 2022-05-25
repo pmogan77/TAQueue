@@ -275,15 +275,33 @@ app.get("/api/classCode", (req, res) => {
     });
 });
 
-app.get(("/sw.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "sw.js"));
+app.get("/sw.js", (req, res) => {
+    fs.readFile(__dirname + "/sw.js", (err, data) => {
+        if (err) {
+              console.log(err);
+              res.redirect('/404');
+        }
+        else{
+              res.writeHead(200, { "Content-type": "application/javascript" });
+              res.end(data);
+        }
+    });
   }
-));
+);
 
-app.get(("/register.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "register.js"));
+app.get("/register.js", (req, res) => {
+    fs.readFile(__dirname + "/register.js", (err, data) => {
+        if (err) {
+              console.log(err);
+              res.redirect('/404');
+        }
+        else{
+              res.writeHead(200, { "Content-type": "application/javascript" });
+              res.end(data);
+        }
+    });
   }
-));
+);
 
 app.delete("/api/user", (req, res) => {
   db.collection("Classes")
