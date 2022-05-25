@@ -162,6 +162,7 @@ app.get("/api/test", (req, res) => {
   //     console.log(error);
   //     res.status(500).send("Internal server error");
   // })
+  res.send("Test successful");
 });
 
 app.search("/api/classInfo", (req, res) => {
