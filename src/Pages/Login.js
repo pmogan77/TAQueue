@@ -41,7 +41,7 @@ function Login(props) {
 
   const resetNotification = () => {
     alert(
-      "Please send an email to helphoursqueue@gmail.com from the provided email to reset your password."
+      "Please send an email to helphoursqueue@gmail.com with your class code to reset your password. Requests will be handled manually."
     );
   };
 

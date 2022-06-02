@@ -1,16 +1,19 @@
 Todo: 
  - [ ] add about page link
+ - [ ] add user fields to login/signup
+ - [ ] add sms possibility
+ - [ ] clean up database every year
+ - [ ] forget password automation
 
 Future Features
  - [ ] email
    - [ ] used for password resettig, login/signup
  - [ ] Next.js
  - [ ] minor bug fixes/UI changes?
- - [ ] seperate accounts for TAs/professors; setting pages?
+ - [ ] seperate accounts for TAs/professors
  - [ ] implement better logging
- - [ ] multiple zoom links?
  - [ ] implement Aria Labels
- - [ ] multiple user in single join
+ - [ ] React Query for live reloading data w/ useQuery
 
 # Getting Started with Create React App
 
