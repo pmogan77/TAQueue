@@ -1,3 +1,7 @@
+Bug: 
+<img width="422" alt="image" src="https://user-images.githubusercontent.com/60144163/182889447-5acab102-f0a9-41a3-894e-c70eea408813.png">
+
+
 Todo: 
  - [ ] connecting to Firestore (database)
  - [ ] implementing authentication
