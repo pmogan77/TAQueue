@@ -8,4 +8,12 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+
+  app.use(
+    "/register.js",
+    createProxyMiddleware({
+      target: "http://0.0.0.0:"+process.env.PORT,
+      changeOrigin: true,
+    })
+  );
 };

@@ -317,7 +317,7 @@ app.delete("/api/user", (req, res) => {
       }
 
       // send email to next user if first in line is deleted
-      if (first != queue[0]) {
+      if (queue[0] && first != queue[0]) {
         console.log("send email to new first");
         // name, EID, classCode, email, position, form
         sendEmail(queue[0].name, queue[0].EID, req.body.classCode, queue[0].email, 1, "first");
