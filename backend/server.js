@@ -1,7 +1,7 @@
 const fs = require("fs");
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 var admin = require("firebase-admin");
 var cookieParser = require("cookie-parser");
 const nodemailer = require("nodemailer");
