@@ -25,7 +25,7 @@ Future Features
 ## 2. Clone the repository
 
 ```bash
-git clone [repo link]
+git clone https://github.com/pmogan77/TAQueue.git
 ```
 
 ## 3. Run Docker Compose in the root directory
@@ -43,7 +43,6 @@ You may specify the '--scale' flag to run multiple containers for the web app.
 ```bash
 docker-compose up -d --scale frontend=2 --scale backend=2
 ```
-
 
 ## 4. Open the app in your browser
 
